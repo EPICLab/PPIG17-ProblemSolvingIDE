@@ -1,0 +1,142 @@
+\documentclass{ppig}
+\usepackage{epsfig}
+\usepackage{booktabs}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+% The titlebox defines how much vertical space is given for
+% the authors' list. If you need extra space to show all the
+% authors, uncomment the line below and increase the value. Please
+% do not make the titlebox smaller than the original size of 5cm.
+%\setlength\titlebox{5cm}
+
+\title{Programming in a Problem-Solving Context: Are modern IDEs up to the task?}
+
+% List the authors like you would in a table.
+% The \And command creates another author's column. Use it after the
+% details of one author to separate them from the following author horizontally.
+% The \AND command creates a new "row" of authors and it should be used
+% when the authors don't fit on the same line. You may have to increase
+% the titlebox so that the author's don't overlap with the abstract.
+\author{Nicholas Nelson \\
+  Electrical Engineering \&\\ Computer Science \\
+  Oregon State University \\
+  nelsonni@oregonstate.edu \\
+  \And
+  Anita Sarma \\
+  Electrical Engineering \&\\ Computer Science \\
+  Oregon State University \\
+  Anita.Sarma@oregonstate.edu \\
+  \And
+  André van der Hoek \\
+  Department of Informatics \\
+  University of California, Irvine \\
+  andre@ics.uci.edu}
+
+\date{\today}
+
+% Packages and macros for editorial purposes. Not required for submission.
+\usepackage{color}
+\newcommand{\bold}[1]{\textit{\textbf{\color{red}#1}}}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage{enumitem}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+Software development encompasses more than generating, testing, and maintaining code.
+It is the manifestation of tools, skills, and techniques applied to problems that lend themselves to code-based solutions.
+Contemporary IDEs natively support the code-centric aspects of software development, but forego providing direct support for many problem-solving traits such as constructing models, recalling prior knowledge, articulating \& refining alternatives, assessing application of alternatives, and recombining aspects of successful alternatives.
+
+We... \bold{add contribution statements here.}
+\end{abstract}
+
+\section{Introduction}
+
+Software development encompasses more than generating, testing, and maintaining code.
+It is the application of tools, techniques, and knowledge applied to problems in a software domain.
+These problems could be... \bold{add two examples that highlight both "traditional" software problems, as well as non-code based problem-solving in this same space}
+
+\bold{
+Background regarding the problem-solving traits that are well supported by modern IDEs:
+	\begin{itemize}[noitemsep, nolistsep]
+	\item	Translating strategies to actions
+	\item	Tracking progress
+	\item	Evaluating and assessing change
+	\item	Synchronization
+	\item	and others from PPS-Matrix
+	\end{itemize}}
+	
+Traditional IDEs are built for particular programming languages, use cases, and workflows.
+Adding support for new languages and use cases to these IDEs increases UI complexity, but it does not cause a shift in the underlying design.
+And for the sake of performance and consistency, uniformity is maintained across different UI components by tightly coupling the UI model with the IDE's internal infrastructure.
+This coupling results in rigidity in the workflows allowed within a particular IDE.
+Experimentation in alternative UI, workflow models, and use cases have higher intrinsic costs because of this IDE design mentality.
+
+
+\section{Background}
+\bold{Discuss the work of Code Bubbles/Debugger Canvas and PatchWorks, since it is particularly relevant to our concepts.}
+
+\section{Challenges}
+\bold{
+Modern IDEs don't support all problem-solving aspects.
+	\begin{itemize}[noitemsep, nolistsep]
+	\item	IDEs are highly-coupled to a code-centric metaphor of software development.
+	\item	IDEs are built around workflows that fit for only certain languages (ex: Java-specific for Eclipse/IntelliJ).
+	\item	IDEs are NOT general-purpose programming environments (ex: RStudio, PyCharm, etc.).
+	\item	The UI layer is dictated by both the target programming language and the typical use-case (see point above).
+	\item	Experimentation in UI design, and by association certain workflows, are not supported by most IDEs.
+	\item	Problem-solving tasks unrelated to code are typically banished to plugins or not supported at all.
+	\end{itemize}}
+
+\section{Alpamayo IDE}
+To address these challenges, we present Alpamayo IDE, an integrated development environment for problem-solving in software development.
+The goal of Alpamayo IDE is to offer developers: a cards-based interface for organizing and searching artifacts based on changing requirements, and an extensible catalog of card UI elements that can easily accommodate new use-cases and behaviors.
+This approach provides developers with a framework for adapting their IDE to suit their desired configuration, instead of adapting their processes to compensate for it.
+
+\subsection{Cards}
+\bold{FIGURE: Front and back of a code card.}
+\bold{Discussion of elements in the code card figure above.}
+
+\bold{FIGURE: Front and back of a non-code card (web-search results?).}
+\bold{Discussion of elements in the non-code card figure above.}
+
+\bold{
+Cards have the following properties:
+	\begin{itemize}[noitemsep, nolistsep]
+	\item 	Moveable anywhere across the IDE canvas window.
+	\item 	Individual cards are not resizable, however user settings should allow for increasing the default size of all cards.
+	\item 	Each card allows for the expansion to a full-screen mode to accommodate editing the entire content of a cards (since cards are likely to be too small of an editable workspace).
+	\item 	Discussion about the meta-data contained on the reverse of a card.
+	\item 	Use examples of a code-based card (OO languages lend themselves to cards in the easiest to understand manner), and also non-code cards such as developer notes from a meeting (i.e. informal requirements) and web-search results from StackOverflow (answers with code references for better applicability).
+	\end{itemize}
+}
+
+\subsection{Canvas}
+\bold{FIGURE: Basic canvas with a few cards in both stacked and fully-exposed sets, as well as a few unorganized cards.}
+\bold{Discussion of the different organizational elements in the figure above.}
+
+\bold{
+Canvas has the following properties:
+	\begin{itemize}[noitemsep,nolistsep]
+		\item	Size is infinite in all directions.
+		\item	Cards cannot be farther than 1-screen distance from any other cards; prevents losing cards in the ether of infinite area.
+		\item	Cards can be stacked in piles throughout the canvas.
+		\item	Filtering allows new groupings (stacks, hand of cards, or fully-exposed set) based upon user-defined criteria.
+		\item	Filtering criteria could include: most recent, only cards edited by Joe, only cards not currently pushed to a non-local version control system, all cards that contained errors according to the last compilation/build/execution attempt, etc.
+		\item	Search allows cards to remain where they have been placed, but assists the user in navigating to that particular location (via card highlighting, or some similar UI element).
+	\end{itemize}
+}
+
+\section{Conclusions}
+Our conclusions are ...
+
+
+\section{Acknowledgements}
+\bold{Add any NSF, OSU, UCI, etc. grants or funding references as needed.}
+
+\bibliography{bibliography}
+\bibliographystyle{apacite} 
+\end{document}

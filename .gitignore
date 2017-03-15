@@ -1,0 +1,16 @@
+main.pdf
+
+.texpadtmp
+
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+*.swp
+*.aux
+*.bbl
+*.blg
+*.log
+*.dvi
+*.out
