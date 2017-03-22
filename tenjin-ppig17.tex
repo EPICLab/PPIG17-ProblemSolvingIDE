@@ -37,7 +37,10 @@
 
 % Packages and macros for editorial purposes. Not required for submission.
 \usepackage{color}
-\newcommand{\bold}[1]{\textit{\textbf{\color{red}#1}}}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{aoblue}{rgb}{0.0, 0.0, 1.0}
+\newcommand{\bold}[1]{\textit{\textbf{\color{aoblue}#1}}}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \usepackage{enumitem}
 
@@ -53,23 +56,36 @@ Contemporary IDEs natively support the code-centric aspects of software developm
 We... \bold{add contribution statements here.}
 \end{abstract}
 
+\bold{Section 1: scenario to illustrate programming as problem-solving\\
+Section 2: introduction to column A of matrix, and details about a subset that we are focusing on in this paper\\
+Section 3: challenges associated with current IDEs/problem-solving in programming\\
+Section 4: envisioned solution (provide mockups and discussion about them)}
+
 \section{Introduction}
 
-Programming is in essence a problem solving task. Lets take the example.... <walk through the steps and intimate why these are problem solving steps>
+Programming is in essence a problem solving task.
+Let us take the example of a team of programmers developing healthcare software which must adhere to several data security and privacy regulations.
+Healthcare software used in the United States must adhere to the Health Insurance Portability and Accountability Act (HIPAA), the Healthcare Reform Act of 2010
+
+
+Lets take the example.... <walk through the steps and intimate why these are problem solving steps>
 
 Often it also involves non-coding steps. For example....
 
-However, current IDEs focus only on one aspect/slice of programming. Restriciting...causing challenges 
+However, current IDEs focus only on one aspect/slice of programming. Restricting...causing challenges 
 
 We take a step back to understand the different aspects of programming and current support for these.
 
 More specifically, we focus on x and y (from Col A) since these are the steps where tool support can be the most useful
 
 We re-think the concept of IDE to involve a card metaphor, giving the user the flexibility....We present here mockups of our prototype.
-We evaluated with our folks here and found, we did awesome :-)
- 
+We evaluated with our folks here and found, we did awesome 
 
-
+\bold{3/22/2017 input from Andre:\\
+We are exploring different IDEs based on this new paradigm of programming as problem-solving.
+For this exploration, we are working on a cards-based environment.
+This environment is our attempt at how we think an alternative environment would function...
+}
 
 
 
@@ -110,6 +126,20 @@ Experimentation in alternative UI, workflow models, and use cases have higher in
 
 \section{Challenges}
 \bold{Weave references to Code Bubbles/Debugger Canvas and PatchWorks as part of the challenges discussions, since it is particularly relevant to our concepts.}
+
+\bold{3/15/2017 input from Anita:
+	\begin{itemize}[noitemsep, nolistsep]
+	\item	C1: code centric
+	\item	C2: not geared towards dynamic exploration / backtracking / breadcrumbs
+	\subitem C1.1: past history
+	\subitem C1.2: immediate past exploration
+	\subitem C1.3: Outside resources
+	\item	C3: evaluate options (side-by-side)
+	\item	C4: flexible to match individual's programming preferences
+	\item	C5: currently only code is considered 1st class; consider all pieces equivalent
+	\subitem based on context of current work, diff aspects of project might take precedence
+	\end{itemize}
+}
 
 \bold{
 Modern IDEs don't support all problem-solving aspects.
