@@ -1,4 +1,4 @@
-# tenjin-ppig17
+# bonsai-ppig17
 
 **PPIG 2017 - 28th Annual Workshop**
 
