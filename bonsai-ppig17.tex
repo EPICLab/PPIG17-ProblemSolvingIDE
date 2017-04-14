@@ -1,9 +1,8 @@
 \documentclass{ppig}
-\usepackage{epsfig}
-\usepackage{booktabs}
-\usepackage{ucs}
-\usepackage[utf8x]{inputenc}
-\usepackage{graphicx}
+\usepackage{epsfig, graphicx} % support for image encoding and manipulation
+\usepackage{ucs} % support for using UTF-8 as input encoding in LaTeX
+\usepackage[utf8x]{inputenc} % required for UTF-8 support with ucs.sty
+\usepackage{tabularx, multirow, booktabs} % support for high-quality tables
 
 % The titlebox defines how much vertical space is given for
 % the authors' list. If you need extra space to show all the
@@ -32,8 +31,9 @@
   André van der Hoek \\
   Department of Informatics \\
   University of California, Irvine \\
-  andre@ics.uci.edu}
-
+  andre@ics.uci.edu
+}
+  
 \date{\today}
 
 % Packages and macros for editorial purposes. Not required for submission.
@@ -69,8 +69,10 @@ Software developers create multiple versions of code to explore and compare viab
 These alternative solutions are not static artifacts that are thrown away during the next garbage cycle; they are manipulated, evaluated, broken apart, and recombined into a final version that is optimized for the requirements the developer desires most.
 In many cases, the act of writing code is a small part of the larger activity that goes into solving computational problems.
 Programming is not merely about language syntax and semantics~\cite{loksa2016programming}.
-There are aspects of software development that involve the creation, use, and preservation of artifacts devoid of code, but which have profound impact on the act of programming.
+There are aspects of software development that involve the creation, use, and preservation of artifacts that are devoid of code.
+These artifacts have a profound impact on the act of programming, the code that results from programming, and whether a developer is successful in addressing a target problem.
 
+\bold{Scenario to illustrate programming as problem-solving\\}
 To illustrate this...
 
 Let us take the example of a team of programmers developing healthcare software which must adhere to several data security and privacy regulations.
@@ -130,8 +132,53 @@ And for the sake of performance and consistency, uniformity is maintained across
 This coupling results in rigidity in the workflows allowed within a particular IDE.
 Experimentation in alternative UI, workflow models, and use cases have higher intrinsic costs because of this IDE design mentality.
 
-\section{Programming as Problem-Solving}
-\bold{Add PPS-Matrix here and discuss column A}
+\section{Problem-Solving in Programming}
+In the context of programming, the language of problem-solving must transition from the generic nature described in psychology literature (\bold{cite cog. phsy. literature about problem-solving}) to a domain-specific language that exemplifies the particular activities involved.
+We present a model of the activities, and underlying actions, that occur when developers use code as a medium to resolve computation problems.
+Table~\ref{matrix} contains our model, characterized into \textit{Activities} that are generic to problem-solving but have an analogous element within programming, and the \textit{Actions} that constitute direct programming actions taken in pursuit of solutions to programming tasks.
+
+\begin{table}[!htbp]
+\caption{Problem-Solving in Programming: Activities and Actions}
+\label{matrix}
+\centering
+\begin{tabular}{|c|l|}
+	\hline
+	\multicolumn{1}{|c|}{\textbf{Activity}} 
+	& \multicolumn{1}{c|}{\textbf{Action}}\\\hline
+	\multirow{5}{*}{Understanding the situation} 
+	& Identifying goals \\\cline{2-2}
+	& Recalling prior knowledge \\\cline{2-2}
+	& Constructing models \\\cline{2-2}
+	& Interpreting code artifacts \\\cline{2-2}
+	& Filling knowledge gaps \\\hline
+	Externalizing thoughts \& ideas 
+	& Representing relevant information \\\hline
+	\multirow{4}{*}{Developing strategies} 
+	& Generating alternatives \\\cline{2-2}
+	& Articulating and refining alternatives \\\cline{2-2}
+	& Understanding and assessing alternatives \\\cline{2-2}
+	& Recombining aspects of alternatives \\\hline
+	\multirow{3}{*}{Enacting change} 
+	& Translating strategies to actions \\\cline{2-2}
+	& Tracking progress \\\cline{2-2}
+	& Evaluating and assessing change \\\hline
+	\multirow{5}{*}{Collaborate} 
+	& Feedback solicitation \\\cline{2-2}
+	& Team work \\\cline{2-2}
+	& Group think \\\cline{2-2}
+	& Leveraging group knowledge \\\cline{2-2}
+	& Synchronization \\\hline
+	\multirow{2}{*}{Retrospect} 
+	& Reflect on work \\\cline{2-2}
+	& Preserve work \\\hline
+\end{tabular}
+\end{table}
+
+For example, when a developer has gathered enough information to be informed about a particular problem, they will begin to developer strategies for resolving that problem.
+Developers will \textit{generate alternatives}, \textit{articulate and refine those alternatives} in order to verify that they appropriately communicate the distinct elements of each alternative, seek to \textit{understand and assess the alternatives} to determine rationales for and against each, and finally \textit{separate and recombine aspects of alternative} strategies that optimizes for desired properties of execution and the final product.
+
+We conjecture that each of the actions in Table~\ref{matrix} represent aspects of programming when examined through the lens of problem-solving.
+Each action is not required individually, but a minimum subset allows for successful programming sessions that produce code that solves the computational problem targeted.
 
 \section{Challenges}
 \bold{Weave references to Code Bubbles/Debugger Canvas and PatchWorks as part of the challenges discussions, since it is particularly relevant to our concepts.}
@@ -161,9 +208,9 @@ Modern IDEs don't support all problem-solving aspects.
 	\item	Problem-solving tasks unrelated to code are typically banished to plugins or not supported at all.
 	\end{itemize}}
 
-\section{Tenjin IDE}
-To address these challenges, we present Tenjin IDE, an integrated development environment for problem-solving in software development.
-The goal of Tenjin IDE is to offer developers: a cards-based interface for organizing and searching artifacts based on changing requirements, and an extensible catalog of card UI elements that can easily accommodate new use-cases and behaviors.
+\section{Bonsai IDE}
+To address these challenges, we present Bonsai IDE, an integrated development environment for problem-solving in software development.
+The goal of Bonsai IDE is to offer developers: a cards-based interface for organizing and searching artifacts based on changing requirements, and an extensible catalog of card UI elements that can easily accommodate new use-cases and behaviors.
 This approach provides developers with a framework for adapting their IDE to suit their desired configuration, instead of adapting their processes to compensate for it.
 
 \subsection{Cards}
