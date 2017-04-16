@@ -59,81 +59,38 @@ In this paper, we examine support in modern IDE design for three of the metacogn
 Based upon our observations, we propose a new user interface for IDEs which enables previously underrepresented aspects of problem-solving; specifically addressing the disparity in support for these three aspects. 
 \end{abstract}
 
-\bold{Section 1: scenario to illustrate programming as problem-solving\\
-Section 2: introduction to column A of matrix, and details about a subset that we are focusing on in this paper\\
-Section 3: challenges associated with current IDEs/problem-solving in programming\\
-Section 4: envisioned solution (provide mockups and discussion about them)}
-
 \section{Introduction}
+\bold{Introduction to programming as problem-solving\\}
 Software developers create multiple versions of code to explore and compare viable alternative solutions.
-These alternative solutions are not static artifacts that are thrown away during the next garbage cycle; they are manipulated, evaluated, broken apart, and recombined into a final version that is optimized for the requirements the developer desires most.
+These alternative solutions are not static artifacts that are thrown away during the next garbage collection cycle; they are manipulated, evaluated, broken apart, and recombined into a final version that is optimized for the requirements the developer desires most.
 In many cases, the act of writing code is a small part of the larger activity that goes into solving computational problems.
 Programming is not merely about language syntax and semantics~\cite{loksa2016programming}.
 There are aspects of software development that involve the creation, use, and preservation of artifacts that are devoid of code.
 These artifacts have a profound impact on the act of programming, the code that results from programming, and whether a developer is successful in addressing a target problem.
 
 \bold{Scenario to illustrate programming as problem-solving\\}
-To illustrate this...
+Imagine a scenario in which Sally, a junior developer, is working on migrating a leaderboard feature from a previously released mobile game.
+Her company has decided to release an updated version of the game, and along with new levels and gameplay elements, they have decided to allow users to connect their in-game scores to a shared platform that connects mobile game enthusiasts across different games.
+To begin, Sally assigns the task to herself in the issue tracker and examines the requirements and design constraints documented through consumer research conducted by the marketing department.
+She explores several different ideas by \textit{sketching out alternative designs}, using each alternative as a chance to think creatively and capture new thoughts as they develop.
+After exhausting her initial ideas for solutions, she begins \textit{working through} each design to determine the feasibility of each alternative.
+When the infeasible or impractical solutions have been removed, Sally begins to \textit{weigh different strengths and weaknesses of the alternative solutions under consideration}.
+This results in several candidate solutions that Sally believes contain aspects best suited for this situation, and she takes these \textit{different aspects and combines them into a new solution}.
+This process can involve code exploration, but the primary focus is on enacting a computation solution arising from metacognitive problem-solving activities.
 
-Let us take the example of a team of programmers developing healthcare software which must adhere to several data security and privacy regulations.
-Healthcare software used in the United States must adhere to the Health Insurance Portability and Accountability Act (HIPAA), the Healthcare Reform Act of 2010
-
-
-Lets take the example.... <walk through the steps and intimate why these are problem solving steps>
-
-Often it also involves non-coding steps. For example....
-
-However, current IDEs focus only on one aspect/slice of programming. Restricting...causing challenges 
-
-We take a step back to understand the different aspects of programming and current support for these.
-
-More specifically, we focus on x and y (from Col A) since these are the steps where tool support can be the most useful
-
-We re-think the concept of IDE to involve a card metaphor, giving the user the flexibility....We present here mockups of our prototype.
-We evaluated with our folks here and found, we did awesome 
-
-\bold{3/22/2017 input from Andre:\\
+When examining the support for these implicit aspects of problem-solving among developer tools, there is a gap that appears among problem-solving steps that do not directly hinge upon interaction with code.
+Modern IDEs focus on the syntactic activities of code generation, examination, maintenance, and execution.
+But the cognitive steps that lead into that code-based activity are not as well understood or supported.
+Therefore, we take a step back and examine the user interfaces (UI) of modern IDEs to understand which aspects of problem-solving are supported and which can be supported through a reimagined interface.
+More specifically, we focus on \textbf{developing strategies} (from the \textit{Activity} column of Table~\ref{matrix}) since this activity, and it's accompanying actions, are not well supported by the UI of modern IDEs.
 We are exploring different IDEs based on this new paradigm of programming as problem-solving.
 For this exploration, we are working on a cards-based environment.
-This environment is our attempt at how we think an alternative environment would function...
-}
+This environment is our attempt at how we think an alternative environment would function when supporting the entire range of problem-solving activities, irregardless of whether an action directly involves code.
+This concept provides the user with flexibility in orienting their workspace according to task-specific needs and composing different configurations that enable comparisons, examinations, and recombinations of alternatives in a side-by-side fashion.
 
-
-
-Software development encompasses more than generating, testing, and maintaining code.
-It is the application of tools, techniques, and knowledge applied to problems in a software domain.
-These problems could be... \bold{add two example problems that highlight both "traditional" software problems, as well as non-code based problem-solving in this same space}
-
-\bold{
-Background regarding the problem-solving traits that are well supported by modern IDEs:
-	\begin{itemize}[noitemsep, nolistsep]
-	\item	Translating strategies to actions
-	\item	Tracking progress
-	\item	Evaluating and assessing change
-	\item	Synchronization
-	\item	...and others from PPS-Matrix
-	\end{itemize}}
-	
-Not all aspects of problem-solving are as explicit as these, and in fact particular, it is the implicit elements of problem-solving that have less support from modern IDEs.
-
-\bold{
-Background regarding the problem-solving traits that are not well supported by modern IDEs:
-	\begin{itemize}[noitemsep, nolistsep]
-	\item	Articulating/refining alternatives
-	\item	Recombining aspects of alternatives
-	\item	Constructing models
-	\item	Leveraging group knowledge
-	\item	...and others from PPS-Matrix
-	\end{itemize}}
-	
-Traditional IDEs are built for particular programming languages, use cases, and workflows.
-Adding support for new languages and use cases to these IDEs increases UI complexity, but it does not cause a shift in the underlying design.
-And for the sake of performance and consistency, uniformity is maintained across different UI components by tightly coupling the UI model with the IDE's internal infrastructure.
-This coupling results in rigidity in the workflows allowed within a particular IDE.
-Experimentation in alternative UI, workflow models, and use cases have higher intrinsic costs because of this IDE design mentality.
-
-\section{Problem-Solving in Programming}
-In the context of programming, the language of problem-solving must transition from the generic nature described in psychology literature~\bold{mayer1992thinking} to a domain-specific language that exemplifies the particular activities involved.
+\section{Programming as Problem-Solving}
+\bold{Introduction to our model of programming as problem-solving, and the mapping between problem-solving psychology and programming tasks\\}
+In the context of programming, the language of problem-solving must transition from the general nature described in psychology literature~\cite{mayer1992thinking} to a domain-specific language that exemplifies the particular activities involved.
 We present a model of the activities, and underlying actions, that occur when developers use code as a medium to resolve computation problems.
 Table~\ref{matrix} contains our model, characterized into \textit{Activities} that are generic to problem-solving but have an analogous element within programming, and the \textit{Actions} that constitute direct programming actions taken in pursuit of solutions to programming tasks.
 
@@ -174,78 +131,58 @@ Table~\ref{matrix} contains our model, characterized into \textit{Activities} th
 \end{tabular}
 \end{table}
 
-For example, when a developer has gathered enough information to be informed about a particular problem, they will begin to developer strategies for resolving that problem.
+For example, when a developer has gathered enough information to be informed about a particular problem, they will begin to \textbf{developer strategies} for resolving that problem.
 Developers will \textit{generate alternatives}, \textit{articulate and refine those alternatives} in order to verify that they appropriately communicate the distinct elements of each alternative, seek to \textit{understand and assess the alternatives} to determine rationales for and against each, and finally \textit{separate and recombine aspects of alternative} strategies that optimizes for desired properties of execution and the final product.
 
 We conjecture that each of the actions in Table~\ref{matrix} represent aspects of programming when examined through the lens of problem-solving.
 Each action is not required individually, but a minimum subset allows for successful programming sessions that produce code that solves the computational problem targeted.
+With these actions being necessary extensions of developer's metacognitive abilities, it seems natural that developer tools should stretch to accommodate as many of these aspects as possible.
 
 \section{Challenges}
-\bold{Weave references to Code Bubbles/Debugger Canvas and PatchWorks as part of the challenges discussions, since it is particularly relevant to our concepts.}
+\bold{Discussion of challenges associated with current IDEs/problem-solving in programming\\}
+Modern IDEs adhere to some common design principles: clarity, consistency, progressive disclosure, and strong visual hierarchies.
+Clarity to allow users to understand what they are interacting with, predict what will happen when they use it, and then successfully interact with it.
+Consistent in both the design of elements shown to users and the behaviors associated with those elements.
+Showing only what is necessary on each screen, and allowing users to progressively expose additional features as necessary when workflows dictate that such actions could be necessary.
+Strong visual clues that direct user's gaze and interactions to follow the hierarchy of visual elements presented on a screen.
+Modern IDEs seek to provide advanced features only when needed and to allow users to focus on the development of code as their primary activity.
+This assumption leads to workflows and uses cases that favor code-centric design, and askew activities and interactions with non-code artifacts to other applications.
 
-\bold{3/15/2017 input from Anita:
-	\begin{itemize}[noitemsep, nolistsep]
-	\item	C1: code centric
-	\item	C2: not geared towards dynamic exploration / backtracking / breadcrumbs
-	\subitem C1.1: past history
-	\subitem C1.2: immediate past exploration
-	\subitem C1.3: Outside resources
-	\item	C3: evaluate options (side-by-side)
-	\item	C4: flexible to match individual's programming preferences
-	\item	C5: currently only code is considered 1st class; consider all pieces equivalent
-	\subitem based on context of current work, diff aspects of project might take precedence
-	\end{itemize}
-}
+Previous work on alternative UI models for IDEs have focused on expanding the interface to allow more dynamic interactions for code comprehension and orientation.
+Bragdon et al. proposed a user interface comprised of lightweight, editable fragments called bubbles, which form concurrently visible working sets in an interface called Code Bubbles~\cite{bragdon2010bubbles}.
+DeLine et al. explored leveraging spatial memory to keep developers oriented by providing an infinite zoomable surface for software development, called Code Canvas~\cite{deline2010canvas}.
+And combining efforts, the Code Bubbles team at Brown University and the Code Canvas team at Microsoft Research jointly created Debugger Canvas which provides collections of code bubbles on a two-dimensional pan-and-zoom interface~\cite{deline2012debugger}.
+The interface models developed by these teams provide both theoretical and practical experience into alternative UI designs that help to break the mold of the ``bento-box'' model of IDEs.
+Henley and Fleming similarly examined the tedious nature of navigating large information spaces and sought to reduce this burden for developers through a code editor UI that consists of a patch grid and a ribbon for navigating quickly through sets of code~\cite{henley2014patchworks}.
+We seek to take these experiments a step further and examine whether combining the new paradigm of programming as problem-solving and non-code centric UI design can further enable developers in developing solutions to computational problems.
 
-\bold{
-Modern IDEs don't support all problem-solving aspects.
-	\begin{itemize}[noitemsep, nolistsep]
-	\item	IDEs are highly-coupled to a code-centric metaphor of software development.
-	\item	IDEs are built around workflows that fit for only certain languages (ex: Java-specific for Eclipse/IntelliJ).
-	\item	IDEs are NOT general-purpose programming environments (ex: RStudio, PyCharm, etc.).
-	\item	The UI layer is dictated by both the target programming language and the typical use-case (see point above).
-	\item	Experimentation in UI design, and by association certain workflows, are not supported by most IDEs.
-	\item	Problem-solving tasks unrelated to code are typically banished to plugins or not supported at all.
-	\end{itemize}}
-
-\section{Bonsai IDE}
-To address these challenges, we present Bonsai IDE, an integrated development environment for problem-solving in software development.
-The goal of Bonsai IDE is to offer developers: a cards-based interface for organizing and searching artifacts based on changing requirements, and an extensible catalog of card UI elements that can easily accommodate new use-cases and behaviors.
+\section{Maverick UI}
+\bold{Present and discuss our envisioned solution\\}
+To address these challenges, we present Maverick UI, an alternative user interface for integrated development environments that support the gamut of problem-solving activities in software development.
+The goal of Maverick UI is to offer developers: a cards-based interface for organizing and searching artifacts based on changing requirements, and an extensible catalog of card UI elements that can easily accommodate new use-cases and behaviors.
 This approach provides developers with a framework for adapting their IDE to suit their desired configuration, instead of adapting their processes to compensate for it.
+\begin{figure}[h!]
+	\caption{Maverick UI mockup}
+	\label{mockup}
+	\fbox{\includegraphics[trim={0 3.5cm 1.0cm 0.6cm},clip,width=\textwidth]{Mockup-7}}
+	\vspace*{-1.5\baselineskip}
+\end{figure}
 
-\subsection{Cards}
-\fbox{\includegraphics[trim={0 3.5cm 1.0cm 0.6cm},clip,width=\textwidth]{Mockup-7}}
-\bold{Discussion of elements in the code card figure above.}
+Figure~\ref{mockup} displays a high-fidelity mockup of the previous scenario in which Sally is developing a solution to migrate a leaderboard feature to a new shared platform.
+She initially creates three sketch cards that contain flow diagrams of three alternative solutions for the problem (cards \texttt{C1-C3}).
+Once she has stopped creating new alternatives, she begins to examine the cards already placed on her workspace and decides that the solution on card \texttt{C3} might not be feasible for this particular situation.
+To verify this assumption, she opens a code editor card (\texttt{C4}) and begins writing exploratory code in order to validate that this solution does not meet all of the task requirements.
+However, during this exploratory development session she realizes that there is another potential solution that could be better than any of her previous alternatives.
+She creates another sketch card (\texttt{C5}) to contain that new idea she had, and then a code editor card (\texttt{C6}) to explore the implementation.
+After she feels comfortable with this latest solution, she contacts the senior developer on her team via an instant messaging (IM) card (\texttt{c7}) that integrates her Slack conversation into the IDE workspace and shares cards \texttt{C5} and \texttt{C6} to discuss her proposed changes.
+The senior developer, Tim, provides some insights into the overall architecture of the game and sends a quick snippet of code that he asks be used to enable a more consistent design across the entire game.
+Based on this input, Sally realized that one of her original alternative solutions contains a flow diagram that illustrates Tim's proposed modification exactly.
+She creates a copy of card \texttt{C5} and on this card (\texttt{C8}) she also copies the portion of card \texttt{C2} that is desired and combines it with the rest of the flow diagram.
+To begin implementing the code, Sally creates another code editor card (\texttt{C9}) and begins coding up the solution she has outlined.
+When she reaches the point at which Tim's proposed snippet of code is applicable, she quickly copies and pastes the code from card \texttt{C7} directly into card \texttt{C9}.
 
-\bold{FIGURE: Front and back of a non-code card (web-search results?).}
-\bold{Discussion of elements in the non-code card figure above.}
-
-\bold{
-Cards have the following properties:
-	\begin{itemize}[noitemsep, nolistsep]
-	\item 	Moveable anywhere across the IDE canvas window.
-	\item 	Individual cards are not resizable, however user settings should allow for increasing the default size of all cards.
-	\item 	Each card allows for the expansion to a full-screen mode to accommodate editing the entire content of a cards (since cards are likely to be too small of an editable workspace).
-	\item 	Discussion about the meta-data contained on the reverse of a card.
-	\item 	Use examples of a code-based card (OO languages lend themselves to cards in the easiest to understand manner), and also non-code cards such as developer notes from a meeting (i.e. informal requirements) and web-search results from StackOverflow (answers with code references for better applicability).
-	\end{itemize}
-}
-
-\subsection{Canvas}
-\bold{FIGURE: Basic canvas with a few cards in both stacked and fully-exposed sets, as well as a few unorganized cards.}
-\bold{Discussion of the different organizational elements in the figure above.}
-
-\bold{
-Canvas has the following properties:
-	\begin{itemize}[noitemsep,nolistsep]
-		\item	Size is infinite in all directions.
-		\item	Cards cannot be farther than 1-screen distance from any other cards; prevents losing cards in the ether of infinite area.
-		\item	Cards can be stacked in piles throughout the canvas.
-		\item	Filtering allows new groupings (stacks, hand of cards, or fully-exposed set) based upon user-defined criteria.
-		\item	Filtering criteria could include: most recent, only cards edited by Joe, only cards not currently pushed to a non-local version control system, all cards that contained errors according to the last compilation/build/execution attempt, etc.
-		\item	Search allows cards to remain where they have been placed, but assists the user in navigating to that particular location (via card highlighting, or some similar UI element).
-	\end{itemize}
-}
+This example illustrates the process of \textit{collecting alternative solutions}, 
+textit{assessing the feasibility of the alternative solutions}, \textit{examining the applicability of the alternative solutions}, and finally \textit{recombining and consolidating the best aspects into a new solution}.
 
 \section{Conclusions}
 Our conclusions are ...
