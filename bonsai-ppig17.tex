@@ -64,8 +64,7 @@ Based upon our observations, we propose a new user interface for IDEs which enab
 
 \section{Introduction}
 \bold{Scenario to illustrate programming as problem-solving\\}
-Imagine a scenario in which Sally, a junior developer, is tasked with updating a specific feature to take advantage of new data storage architecture that has been implemented for a large-scale software project.
-Since Sally's employer is a small software company, individual developers are asked to take ownership of individual features and shepherd them from design to completion.
+Imagine a scenario in which Sally, a junior developer, is tasked with updating a specific feature to take advantage of new architecture within the core API of the larger software project. In the process of accomplishing this task, she must use several different applications and a variety of file formats.
 
 Sally begins her project by logging into the company's issue tracker and assigning the associated issue to herself.
 She also downloads and opens several documents included with the feature issue; a PDF document containing sketches and notes from the design team, a list of requirements from the marketing team, and another PDF document containing an estimated timeline from the project manager assigned to this project.
@@ -74,25 +73,26 @@ To accomplish these sub-tasks, she spends a day reading through the code using a
 After exhausting her initial ideas, she works through some of the more promising sketches to determine the feasibility of each alternative.
 
 The sketches and ideas that appear to have the most strengths (and inversely, the least weaknesses) for this specific situation will require modifying certain portions of the core architecture of the software.
-Since changes to the core architecture will affect the rest of the development team, and could potentially interrupt development in other areas of the project, Sally sends emails to the senior developer on her team and the project manager.
+Since changes to the core architecture will affect the rest of the development team, and could potentially interrupt development in other areas of the project, Sally sends emails to Mark (the senior developer on her team) and the project manager.
 After several rounds of emails, and one project meeting organized by the project manager, Sally has notes scribbled on several pieces of paper, a trail of emails between different stakeholders, and a verbally-communicated history of why and how the code is organized the way it is today.
 
-Converting all of the information contained within these different artifacts into useful bits of code takes requires combining different aspects into a single solution.
-Sally is able to complete her task and submit her feature code, but not without significant effort to remain organized and the ability to bring different problem-solving abilities to bear on both code and non-code related sub-tasks.
-Because her IDE only targets code artifacts in a linear manner, Sally is unable to leverage tool support for most of the tasks outlined in this scenario.
+Converting all of the information contained within these different artifacts into useful code requires coalescing only the best aspects into a single solution.
+Sally is able to complete her task, but not without significant effort to remain organized.
+She must also bring different problem-solving abilities to bear on both code and non-code related sub-tasks.
+Because her IDE only targets code artifacts in a linear manner, Sally is forced to switch between different tools throughout this scenario.
 
 \section{Programming as Problem-Solving}
 
 \bold{Introduction to our model of programming as problem-solving, and the mapping between problem-solving psychology and programming tasks\\}
 
-Examining the disparate and disbursed nature of artifacts in Sally's situation, which exemplifies a typical situation among programmers, we can quickly see that a new way of understanding the nature of programming is needed.
+Examining the disparate and disbursed nature of artifacts in Sally's situation, which exemplifies a typical situation among programmers, we see that a new way of understanding the nature of programming is needed.
 We propose using problem-solving as a lens to examine programming tools, specifically IDEs, to assist in qualifying which aspects of programming are not being supported and to determine how to address those gaps.
 
-In a normal software development cycle, programmers are known to create all sorts of auxiliary non-code artifacts~\cite{cherubini2007whiteboard}.
+During software development, programmers are known to create all sorts of auxiliary non-code artifacts~\cite{cherubini2007whiteboard}.
 Programmers are also known to organize these artifacts into structures that are relevant to the particular task(s) they are currently working on~\cite{baltes2016empirical}.
 Also, programmers are known to not pursue a single solution, but to generally approach a task by exploring (either mentally or externalized) multiple alternative solutions~\cite{madeyski2017experimentation}.
 These actions can be classified as \textit{representing relevant information}, \textit{contextualizing information}, and \textit{generating alternatives} (respectively) when examined as problem-solving actions.
-And further, these actions can be grouped into the problem-solving activities of \textit{externalizing thoughts \& ideas} and \textit{developing strategies} when generalized according to cognitive psychology~\cite{mayer1992thinking}.
+And further, these actions can be grouped under the problem-solving activity of \textit{externalizing thoughts \& ideas} and \textit{developing strategies} when generalized according to cognitive psychology~\cite{mayer1992thinking}.
 
 \begin{table}[!htbp]
 \caption{Activities and Actions of Programming as Problem-Solving}
@@ -139,7 +139,7 @@ There are aspects of software development that involve the creation, use, and pr
 These artifacts have a profound impact on the act of programming, the code that results from programming, and whether a developer is successful in addressing a target problem.
 
 Using literature from cognitive psychology, human-computer interaction, and psychology in programming, we have developed Table~\ref{matrix} to represent general problem-solving activities (column \textit{Activity}) and the corresponding programming actions (column \textit{Action}).
-We propose that this table accommodates aspects of programming that would otherwise be obfuscated by the focus of modern IDEs on elevating code artifacts to be the only first-class citizens.
+This table captures aspects of programming that would otherwise be obfuscated by the elevation of code-based artifacts as the only first-class type within modern IDEs.
 
 Although not all actions are taken for every problem, across multiple problems and development sessions, these actions are continually employed by programmers.
 Therefore, to enable programmers to solve increasingly complex problems, their tools should accommodate the full gamut of the problem-solving process.
@@ -177,19 +177,22 @@ This approach provides developers with a framework for adapting their IDE to sui
 	\vspace*{-1.5\baselineskip}
 \end{figure}
 
-\bold{WARNING! The text below no longer correctly reflects either the Sally example situation, or the cards listed in the mockup image above.}\\
-Figure~\ref{mockup} displays a high-fidelity mockup of the previous scenario in which Sally is developing a solution to migrate a leaderboard feature to a new shared platform.
-She initially creates three sketch cards that contain flow diagrams of three alternative solutions for the problem (cards \texttt{C1-C3}).
-Once she has stopped creating new alternatives, she begins to examine the cards already placed on her workspace and decides that the solution on card \texttt{C3} might not be feasible for this particular situation.
-To verify this assumption, she opens a code editor card (\texttt{C4}) and begins writing exploratory code in order to validate that this solution does not meet all of the task requirements.
-However, during this exploratory development session she realizes that there is another potential solution that could be better than any of her previous alternatives.
-She creates another sketch card (\texttt{C5}) to contain that new idea she had, and then a code editor card (\texttt{C6}) to explore the implementation.
-After she feels comfortable with this latest solution, she contacts the senior developer on her team via an instant messaging (IM) card (\texttt{c7}) that integrates her Slack conversation into the IDE workspace and shares cards \texttt{C5} and \texttt{C6} to discuss her proposed changes.
-The senior developer, Tim, provides some insights into the overall architecture of the game and sends a quick snippet of code that he asks be used to enable a more consistent design across the entire game.
-Based on this input, Sally realized that one of her original alternative solutions contains a flow diagram that illustrates Tim's proposed modification exactly.
-She creates a copy of card \texttt{C5} and on this card (\texttt{C8}) she also copies the portion of card \texttt{C2} that is desired and combines it with the rest of the flow diagram.
-To begin implementing the code, Sally creates another code editor card (\texttt{C9}) and begins coding up the solution she has outlined.
-When she reaches the point at which Tim's proposed snippet of code is applicable, she quickly copies and pastes the code from card \texttt{C7} directly into card \texttt{C9}.
+Figure~\ref{mockup} displays a high-fidelity mockup of the \nameUI{} and the associated cards that Sally would be able to utilize within her IDE in order to accomplish her task of updating a feature to use a new API.
+
+Sally initially opens a GitHub Integration card (\texttt{C1}) that retrieves information through the GitHub API and formats the results for a condensed presentation of the description, tags, issue status, and activity history.
+The related issue on GitHub contains more activity events than can be presented on the card, and therefore an overflow indicator (three dots below the card) appears to give a visual cue that further information can be accessed via a swiping interaction.
+Since Sally is interested in filling in her knowledge gaps about the issue, and any prior knowledge available, she elects to flip the card around and examine the metadata related to card \texttt{C1}.
+The reverse card face (\texttt{C2}) contains meta-information related to when the card was created within the IDE, card type, creator, access logs for the card, and any linked files.
+Selecting the PDF \texttt{``Draft\_Design\_v11''}, Sally is able to launch a new PDF Viewer card (\texttt{C3}) that contains the sketches and notes from the design team.
+She could also open a Text Viewer card and an Image Viewer card for the requirements list from the marketing team and timeline from the project manager from within the linked files section of \texttt{C2}.
+
+Once Sally has grasped the available prior knowledge, contextualized it according to her task, and begun to develop strategies for completing the task she can open additional cards for code exploration and development.
+Opening a Java Code Editor card (\texttt{C4}) that contains the target area of code that she will be modifying allows her to simultaneously reference documents from her previous information gathering while working on the code implementation.
+Since Sally is not certain that her current changes will be the final solution, she can open an additional Java Code Editor card (\texttt{C5}) which contains the same target area of code prior to the introduction of her proposed changes (thus reflecting the checked-in version).
+When reaching out to Mark, the senior developer on her team, Sally is able to select only the cards relevant to their conversation (\texttt{C4,C5}) and share them with Mark so that he can view them in his own IDE workspace.
+These shared cards allow both Sally and Mark to edit code simultaneously and share thoughts and ideas without barriers that inhibit the exchange of shared knowledge.
+If Mark, or any of the other stakeholders on the project, is unavailable for connecting to the shared cards and instead sends emails to Sally with ideas, sketches, and code snippets, Sally can open each of those emails in Composer Email cards (\texttt{C6-C9}) directly within her IDE workspace.
+She can copy and paste the code snippets from the emails and into the Java Code Editor cards without having to switch between two separate applications and manage multiple associated windows.
 
 This example illustrates the process of \textit{collecting alternative solutions}, 
 \textit{assessing the feasibility of the alternative solutions}, \textit{examining the applicability of the alternative solutions}, and finally \textit{recombining and consolidating the best aspects into a new solution}.
