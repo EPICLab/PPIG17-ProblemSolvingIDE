@@ -10,7 +10,7 @@
 % do not make the titlebox smaller than the original size of 5cm.
 %\setlength\titlebox{5cm}
 
-\title{Problem-Solving in Programming: A Metacognitive Examination of IDE Design}
+\title{An Examination of IDE Design for Programming as Problem-Solving}
 
 % List the authors like you would in a table.
 % The \And command creates another author's column. Use it after the
@@ -165,11 +165,18 @@ Henley and Fleming similarly examined the tedious nature of navigating large inf
 We seek to take these experiments a step further and examine whether combining the new paradigm of programming as problem-solving and non-code centric UI design can further enable developers in developing solutions to computational problems.
 \todo{Add references to IDEs for Novices, Lighthouse, ...}
 
-\section{\nameUI{}}
+\section{IDEs as Problem-Solving Tools}
 \bold{Present and discuss our envisioned solution\\}
-To address these challenges, we present \nameUI{}, an alternative user interface for integrated development environments that support the gamut of problem-solving activities in software development.
-The goal of \nameUI{} is to offer developers: a cards-based interface for organizing and searching artifacts based on changing requirements, and an extensible catalog of cards that can easily accommodate new use-cases and behaviors.
-This approach provides developers with a framework for adapting their IDE to suit their desired configuration, instead of adapting their processes to compensate for it.
+To address these challenges, we have begun a long-term research effort that attempts to rethink the IDE from the ground up using the problem-solving perspective as a paradigm shift for evaluating our design rationale.
+We use Code Bubbles~\cite{bragdon2010bubbles} and Code Canvas~\cite{deline2010canvas} as key inspirations for interface designs that eschew window-based interfaces and explore spatial interfaces that allow users to project meaning onto the layout of their development environment.
+Extending the zoomable canvas of Code Canvas and the code bubble windows of Code Bubbles, we explore using these concepts to meet all of the problem-solving activities that programmers encounter.
+
+Modern IDEs are comprised of different information sources being presented in a variety of visual elements that must be organized and comprehended by users.
+According to the Gestalt school of thought, our perception of the world is influenced by the way we group and segregate the visual stimuli presented to us~\cite{kimchi2003perceptual}.
+Instead of perceiving individual and distinct objects in the world, we perceive objects that are logically connected to each other~\cite{kimchi2003perceptual}.
+The strength of grouping objects is inversely proportional to the distance between the elements~\cite{bergman2009peirce}; therefore, the closer the elements are to each other the stronger our perception is that these belong to the same group.
+To take advantage of the neuro-cognitive process of perceptual organization, we propose a cards-based interface which allows card positioning and stacking for logical organization across user-driven tasks.
+
 \begin{figure}[h!]
 	\caption{\nameUI{} mockup}
 	\label{mockup}
@@ -198,7 +205,7 @@ She can copy and paste the code snippets from the emails and into the Java Code 
 This example illustrates the process of \textit{collecting alternative solutions}, 
 \textit{assessing the feasibility of the alternative solutions}, \textit{examining the applicability of the alternative solutions}, and finally \textit{recombining and consolidating the best aspects into a new solution}.
 
-\section{Conclusions}
+\section{Discussion}
 Our conclusions are ...
 
 
