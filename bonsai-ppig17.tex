@@ -36,15 +36,16 @@
   
 \date{\today}
 
-\newcommand{\nameUI}{\textit{<Insert Name>} UI}
-
 % Packages and macros for editorial purposes. Not required for submission.
 \usepackage{color}
 \definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
 \definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
 \definecolor{aoblue}{rgb}{0.0, 0.0, 1.0}
-\newcommand{\bold}[1]{\textit{\textbf{\color{aoblue}#1}}}
+\newcommand{\bold}[1]{\textit{\textbf{\color{aoblue}#1}}} % macro for boldifications
+\newcommand{\todo}[1]{\textit{\textbf{\color{red}TODO: #1}}} % macro for TODO items
+\newcommand{\discuss}[1]{\textit{\textbf{\color{darkgreen}#1}}} % macro for in-line discussions/questions
 \newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\nameUI}{\textit{<Insert Name>} UI} % macro placeholder for the name of the UI
 \usepackage{enumitem}
 
 \begin{document}
@@ -57,19 +58,21 @@ Programming is more than generating, testing, and maintaining code.
 Programming is fundamentally an extension of cognitive problem-solving skills applied to computational problems.
 Contemporary IDEs natively support the code-centric aspects of programming, but forego supporting many of the cognitive aspects of problem-solving that do not directly involve code.
 We propose that IDEs should support the entire gamut of problem-solving activities during programming, and that this requires a re-examination and redesign of the IDE user interface.
-To this end, we focus this paper on actions that developers take when developing strategies to address a programming task.
+In this paper, we describe six activities and 22 actions that exemplify problem-solving in programming.
+We further explore one activity and it's actions: the actions developers take when developing strategies to address a programming task.
 In particular, we look at the actions of: (1) articulating \& refining alternatives, (2) understanding \& assessing alternatives, and (3) recombining aspects of alternatives.
 Based upon our observations, we propose a new user interface for IDEs which enables previously underrepresented aspects of problem-solving; specifically addressing the disparity in support for these three aspects. 
 \end{abstract}
 
 \section{Introduction}
-\bold{Scenario to illustrate programming as problem-solving\\}
-Imagine a scenario in which Sally, a junior developer, is tasked with updating a specific feature to take advantage of new architecture within the core API of the larger software project. In the process of accomplishing this task, she must use several different applications and a variety of file formats.
+\bold{Scenario to illustrate programming as problem-solving}\vspace*{-0.4\baselineskip}
+
+Imagine a scenario in which Sally, a junior developer, is tasked with updating a specific feature to take advantage of a new architecture within the core API of the larger software project. In the process of accomplishing this task, she must use several different applications and a variety of file formats.
 
 Sally begins her project by logging into the company's issue tracker and assigning the associated issue to herself.
 She also downloads and opens several documents included with the feature issue; a PDF document containing sketches and notes from the design team, a list of requirements from the marketing team, and another PDF document containing an estimated timeline from the project manager assigned to this project.
-Before beginning to write code, Sally decides that she needs to understand the area of code she will be modifying and drafting a plan for how to implement those modifications.
-To accomplish these sub-tasks, she spends a day reading through the code using an IDE and sketching potential implementations on a piece of paper using shapes and arrows to represent different abstractions for the code.
+Before beginning to write code, Sally decides that she needs to understand the area of code she will be modifying and drafts a plan for how to implement those modifications.
+To accomplish these sub-tasks, she spends a day reading through the code using an IDE and sketching potential implementations on a piece of paper using shapes and arrows to represent different abstractions of the code.
 After exhausting her initial ideas, she works through some of the more promising sketches to determine the feasibility of each alternative.
 
 The sketches and ideas that appear to have the most strengths (and inversely, the least weaknesses) for this specific situation will require modifying certain portions of the core architecture of the software.
@@ -78,21 +81,31 @@ After several rounds of emails, and one project meeting organized by the project
 
 Converting all of the information contained within these different artifacts into useful code requires coalescing only the best aspects into a single solution.
 Sally is able to complete her task, but not without significant effort to remain organized.
-She must also bring different problem-solving abilities to bear on both code and non-code related sub-tasks.
-Because her IDE only targets code artifacts in a linear manner, Sally is forced to switch between different tools throughout this scenario.
+Working with non-code artifacts requires Sally to add additional tools into her workspace, which increases the complexity of accomplishing her tasks.
+Throughout this scenario, Sally is forced to employ a variety of tools that accomplish particular portions of her task but none allow her to focus on the entire task.
 
 \section{Programming as Problem-Solving}
 
 \bold{Introduction to our model of programming as problem-solving, and the mapping between problem-solving psychology and programming tasks\\}
 
-Examining the disparate and disbursed nature of artifacts in Sally's situation, which exemplifies a typical situation among programmers, we see that a new way of understanding the nature of programming is needed.
-We propose using problem-solving as a lens to examine programming tools, specifically IDEs, to assist in qualifying which aspects of programming are not being supported and to determine how to address those gaps.
+Examining the disparate and dispersed nature of artifacts in Sally's situation, which exemplifies a typical situation for programmers, we see that a new way of understanding the nature of programming is needed.
+We propose using problem-solving as a lens to examine programming tools, specifically IDEs, to assist in identifying which aspects of programming are not being supported and to determine how to address those gaps.
 
-During software development, programmers are known to create all sorts of auxiliary non-code artifacts~\cite{cherubini2007whiteboard}.
-Programmers are also known to organize these artifacts into structures that are relevant to the particular task(s) they are currently working on~\cite{baltes2016empirical}.
-Also, programmers are known to not pursue a single solution, but to generally approach a task by exploring (either mentally or externalized) multiple alternative solutions~\cite{madeyski2017experimentation}.
+\discuss{For André: Does the first sentence below say what was stated in your previous notes?\\}
+Much is known already about programming being a problem-solving activity that does not involve the code base in editing in the editor provided by the IDE.
+During software development, for instance, programmers are known to create all sorts of auxiliary non-code artifacts~\cite{cherubini2007whiteboard}.
+As a second example, programmers are known to organize these artifacts into structures that are relevant to the particular task(s) they are currently focused upon~\cite{baltes2016empirical}.
+As a final example, programmers are known to not pursue a single solution, but to generally approach a task by exploring (either mentally or externalized) multiple alternative solutions~\cite{madeyski2017experimentation}.
+\todo{Fix issues with the transition to this section being too fast.}
 These actions can be classified as \textit{representing relevant information}, \textit{contextualizing information}, and \textit{generating alternatives} (respectively) when examined as problem-solving actions.
 And further, these actions can be grouped under the problem-solving activity of \textit{externalizing thoughts \& ideas} and \textit{developing strategies} when generalized according to cognitive psychology~\cite{mayer1992thinking}.
+
+\discuss{For André: Does the following paragraph say what was stated in your previous notes in the margins?\\}
+Table~\ref{matrix} summarizes the full set of problem-solving activities employed during programming sessions, based on an extensive survey of literature that we performed.
+The activities broadly fall into six categories, with specific types of actions providing detail to the high-level abstractions of the activities.
+Clearly not every task needs all of these problem-solving actions, and there is no linearity to the order in which they are employed.
+Sometimes these actions are not observed because they happen in the programmer's head.
+At the same time, all of these activities and actions have been observed to happen, they serve as important roles in knowledge base to the programming problem at hand.
 
 \begin{table}[!htbp]
 \caption{Activities and Actions of Programming as Problem-Solving}
@@ -133,18 +146,6 @@ And further, these actions can be grouped under the problem-solving activity of 
 \end{tabular}
 \end{table}
 
-In many cases, the act of writing code is a small part of the larger activity that goes into solving computational problems.
-Programming is not merely about language syntax and semantics~\cite{loksa2016programming}.
-There are aspects of software development that involve the creation, use, and preservation of artifacts that are devoid of code.
-These artifacts have a profound impact on the act of programming, the code that results from programming, and whether a developer is successful in addressing a target problem.
-
-Using literature from cognitive psychology, human-computer interaction, and psychology in programming, we have developed Table~\ref{matrix} to represent general problem-solving activities (column \textit{Activity}) and the corresponding programming actions (column \textit{Action}).
-This table captures aspects of programming that would otherwise be obfuscated by the elevation of code-based artifacts as the only first-class type within modern IDEs.
-
-Although not all actions are taken for every problem, across multiple problems and development sessions, these actions are continually employed by programmers.
-Therefore, to enable programmers to solve increasingly complex problems, their tools should accommodate the full gamut of the problem-solving process.
-As it currently stands, however, the UI for modern IDEs are built around the code-centric concept and cannot be easily altered.
-
 \section{Challenges}
 \bold{Discussion of challenges associated with current IDEs/problem-solving in programming\\}
 Modern IDEs adhere to some common design principles: clarity, consistency, progressive disclosure, and strong visual hierarchies.
@@ -155,7 +156,6 @@ Strong visual clues that direct user's gaze and interactions to follow the hiera
 Modern IDEs seek to provide advanced features only when needed and to allow users to focus on the development of code as their primary activity.
 This assumption leads to workflows and uses cases that favor code-centric design, and askew activities and interactions with non-code artifacts to other applications.
 
-\bold{TODO: Add references to IDEs for Novices, Lighthouse, ...\\}
 Previous work on alternative UI models for IDEs have focused on expanding the interface to allow more dynamic interactions for code comprehension and orientation.
 Bragdon et al. proposed a user interface comprised of lightweight, editable fragments called bubbles, which form concurrently visible working sets in an interface called Code Bubbles~\cite{bragdon2010bubbles}.
 DeLine et al. explored leveraging spatial memory to keep developers oriented by providing an infinite zoomable surface for software development, called Code Canvas~\cite{deline2010canvas}.
@@ -163,11 +163,12 @@ And combining efforts, the Code Bubbles team at Brown University and the Code Ca
 The interface models developed by these teams provide both theoretical and practical experience into alternative UI designs that help to break the mold of the ``bento-box'' model of IDEs.
 Henley and Fleming similarly examined the tedious nature of navigating large information spaces and sought to reduce this burden for developers through a code editor UI that consists of a patch grid and a ribbon for navigating quickly through sets of code~\cite{henley2014patchworks}.
 We seek to take these experiments a step further and examine whether combining the new paradigm of programming as problem-solving and non-code centric UI design can further enable developers in developing solutions to computational problems.
+\todo{Add references to IDEs for Novices, Lighthouse, ...}
 
 \section{\nameUI{}}
 \bold{Present and discuss our envisioned solution\\}
 To address these challenges, we present \nameUI{}, an alternative user interface for integrated development environments that support the gamut of problem-solving activities in software development.
-The goal of \nameUI{} is to offer developers: a cards-based interface for organizing and searching artifacts based on changing requirements, and an extensible catalog of card UI elements that can easily accommodate new use-cases and behaviors.
+The goal of \nameUI{} is to offer developers: a cards-based interface for organizing and searching artifacts based on changing requirements, and an extensible catalog of cards that can easily accommodate new use-cases and behaviors.
 This approach provides developers with a framework for adapting their IDE to suit their desired configuration, instead of adapting their processes to compensate for it.
 \begin{figure}[h!]
 	\caption{\nameUI{} mockup}
@@ -202,7 +203,7 @@ Our conclusions are ...
 
 
 \section{Acknowledgements}
-\bold{Add any NSF, OSU, UCI, etc. grants or funding references as needed.}
+\todo{Add any NSF, OSU, UCI, etc. grants or funding references as needed.}
 
 \bibliography{bibliography}
 \bibliographystyle{apacite} 
