@@ -44,7 +44,6 @@
 \newcommand{\bold}[1]{\textit{\textbf{\color{aoblue}#1}}} % macro for boldifications
 \newcommand{\todo}[1]{\textit{\textbf{\color{red}TODO: #1}}} % macro for TODO items
 \newcommand{\discuss}[1]{\textit{\textbf{\color{darkgreen}#1}}} % macro for in-line discussions/questions
-\newcommand\tab[1][1cm]{\hspace*{#1}}
 \newcommand{\nameUI}{\textit{<Insert Name>} UI} % macro placeholder for the name of the UI
 \usepackage{enumitem}
 
@@ -86,19 +85,17 @@ Throughout this scenario, Sally is forced to employ a variety of tools that acco
 
 \section{Programming as Problem-Solving}
 
-\bold{Introduction to our model of programming as problem-solving, and the mapping between problem-solving psychology and programming tasks\\}
+\bold{Introduction to our model of programming as problem-solving, and the mapping between problem-solving psychology and programming tasks}
 
 Examining the disparate and dispersed nature of artifacts in Sally's situation, which exemplifies a typical situation for programmers, we see that a new way of understanding the nature of programming is needed.
 We propose using problem-solving as a lens to examine programming tools, specifically IDEs, to assist in identifying which aspects of programming are not being supported and to determine how to address those gaps.
 
-\discuss{For André: Does the first sentence below say what was stated in your previous notes?\\}
-Much is known already about programming being a problem-solving activity that does not involve the code base in editing in the editor provided by the IDE.
+Much is known already about programming being a problem-solving activity beyond editing code in the editor provided by the IDE.
 During software development, for instance, programmers are known to create all sorts of auxiliary non-code artifacts~\cite{cherubini2007whiteboard}.
 As a second example, programmers are known to organize these artifacts into structures that are relevant to the particular task(s) they are currently focused upon~\cite{baltes2016empirical}.
 As a final example, programmers are known to not pursue a single solution, but to generally approach a task by exploring (either mentally or externalized) multiple alternative solutions~\cite{madeyski2017experimentation}.
-\todo{Fix issues with the transition to this section being too fast.}
-These actions can be classified as \textit{representing relevant information}, \textit{contextualizing information}, and \textit{generating alternatives} (respectively) when examined as problem-solving actions.
-And further, these actions can be grouped under the problem-solving activity of \textit{externalizing thoughts \& ideas} and \textit{developing strategies} when generalized according to cognitive psychology~\cite{mayer1992thinking}.
+By applying prior work on problem-solving from a cognitive psychology perspective~\cite{mayer1992thinking}, we can classify these actions, respectively, into \textit{representing relevant information}, \textit{contextualizing information}, and \textit{generating alternatives}.
+These actions can then be generalized to represent the problem-solving activities of \textit{externalizing thoughts \& ideas} and \textit{developing strategies}.
 
 \discuss{For André: Does the following paragraph say what was stated in your previous notes in the margins?\\}
 Table~\ref{matrix} summarizes the full set of problem-solving activities employed during programming sessions, based on an extensive survey of literature that we performed.
@@ -147,7 +144,9 @@ At the same time, all of these activities and actions have been observed to happ
 \end{table}
 
 \section{Challenges}
-\bold{Discussion of challenges associated with current IDEs/problem-solving in programming\\}
+\bold{Discussion of challenges associated with current IDEs/problem-solving in programming}
+
+\discuss{For André: How should we present challenges in regards to modern IDEs (and their UI)?\\}
 Modern IDEs adhere to some common design principles: clarity, consistency, progressive disclosure, and strong visual hierarchies.
 Clarity to allow users to understand what they are interacting with, predict what will happen when they use it, and then successfully interact with it.
 Consistent in both the design of elements shown to users and the behaviors associated with those elements.
@@ -162,14 +161,15 @@ DeLine et al. explored leveraging spatial memory to keep developers oriented by 
 And combining efforts, the Code Bubbles team at Brown University and the Code Canvas team at Microsoft Research jointly created Debugger Canvas which provides collections of code bubbles on a two-dimensional pan-and-zoom interface~\cite{deline2012debugger}.
 The interface models developed by these teams provide both theoretical and practical experience into alternative UI designs that help to break the mold of the ``bento-box'' model of IDEs.
 Henley and Fleming similarly examined the tedious nature of navigating large information spaces and sought to reduce this burden for developers through a code editor UI that consists of a patch grid and a ribbon for navigating quickly through sets of code~\cite{henley2014patchworks}.
-We seek to take these experiments a step further and examine whether combining the new paradigm of programming as problem-solving and non-code centric UI design can further enable developers in developing solutions to computational problems.
-\todo{Add references to IDEs for Novices, Lighthouse, ...}
+Da Silva et al. proposed a conflict avoidance approach to developer coordination problems which combines Emerging Design and side-by-side presentation in an architecture called Lighthouse~\cite{dasilva2006lighthouse}.
+The Lighthouse user interface provides time-sensitive information about parallel changes introduced to a shared codebase in a novel approach to information awareness between developers in a team environment.
+We seek to take these experiments a step further and examine whether combining the paradigm of programming as problem-solving and alternative UI design can further enable developers in developing solutions to computational problems.
 
 \section{IDEs as Problem-Solving Tools}
 \bold{Present and discuss our envisioned solution\\}
 To address these challenges, we have begun a long-term research effort that attempts to rethink the IDE from the ground up using the problem-solving perspective as a paradigm shift for evaluating our design rationale.
-We use Code Bubbles~\cite{bragdon2010bubbles} and Code Canvas~\cite{deline2010canvas} as key inspirations for interface designs that eschew window-based interfaces and explore spatial interfaces that allow users to project meaning onto the layout of their development environment.
-Extending the zoomable canvas of Code Canvas and the code bubble windows of Code Bubbles, we explore using these concepts to meet all of the problem-solving activities that programmers encounter.
+We use Code Bubbles~\cite{bragdon2010bubbles} and Code Canvas~\cite{deline2010canvas} as key inspirations for interface designs that eschew window-based interfaces and explore spatial interfaces allowing users to project meaning onto the layout of their development environment.
+Extending the zoomable canvas of Code Canvas and the code bubble windows of Code Bubbles, we explore these and other concepts from interface design to support the problem-solving activities that programmers encounter.
 
 Modern IDEs are comprised of different information sources being presented in a variety of visual elements that must be organized and comprehended by users.
 According to the Gestalt school of thought, our perception of the world is influenced by the way we group and segregate the visual stimuli presented to us~\cite{kimchi2003perceptual}.
@@ -177,15 +177,20 @@ Instead of perceiving individual and distinct objects in the world, we perceive 
 The strength of grouping objects is inversely proportional to the distance between the elements~\cite{bergman2009peirce}; therefore, the closer the elements are to each other the stronger our perception is that these belong to the same group.
 To take advantage of the neuro-cognitive process of perceptual organization, we propose a cards-based interface which allows card positioning and stacking for logical organization across user-driven tasks.
 
+Programming activities span editing code to sketching ideas on whiteboards, with each action serving different problem-solving aspects in pursuit of a solution.
+In order to support this variety of actions, we propose that cards in our cards-based interface come in different types that support specific information sources and interactions while providing a common platform.
+These card types can include code editors for working with code in specific programming languages, sketchpads for both drawing ideas and annotating text, webpages for referencing information sources on the Internet, todo lists for organizing tasks, timelines for managing projects, emails and chat transcripts for communications, etc.
+
 \begin{figure}[h!]
-	\caption{\nameUI{} mockup}
+	\caption{Cards-based User Interface of a Problem-Solving IDE}
 	\label{mockup}
 	% trim={<left> <lower> <right> <upper>}
 	\fbox{\includegraphics[trim={0.6cm 3.2cm 0.5cm 0.6cm},clip,width=\textwidth]{Mockup-9}}
 	\vspace*{-1.5\baselineskip}
 \end{figure}
 
-Figure~\ref{mockup} displays a high-fidelity mockup of the \nameUI{} and the associated cards that Sally would be able to utilize within her IDE in order to accomplish her task of updating a feature to use a new API.
+To illustrate our proposed IDE, we present Figure~\ref{mockup} as an illustration of cards used by Sally to accomplish her task using our cards-based user interface.
+We describe the scenario in which Sally is tasked with updating a feature to use a new API, but reimagined to use an IDE based on the problem-solving perspective.
 
 Sally initially opens a GitHub Integration card (\texttt{C1}) that retrieves information through the GitHub API and formats the results for a condensed presentation of the description, tags, issue status, and activity history.
 The related issue on GitHub contains more activity events than can be presented on the card, and therefore an overflow indicator (three dots below the card) appears to give a visual cue that further information can be accessed via a swiping interaction.
@@ -204,13 +209,10 @@ She can copy and paste the code snippets from the emails and into the Java Code 
 
 This example illustrates the process of \textit{collecting alternative solutions}, 
 \textit{assessing the feasibility of the alternative solutions}, \textit{examining the applicability of the alternative solutions}, and finally \textit{recombining and consolidating the best aspects into a new solution}.
+Traditional IDEs are incapable of supporting these types of activities without relying upon plugins or additional external applications; which typically adhere to different user interface designs and increasing interoperability complexity.
 
 \section{Discussion}
 Our conclusions are ...
-
-
-\section{Acknowledgements}
-\todo{Add any NSF, OSU, UCI, etc. grants or funding references as needed.}
 
 \bibliography{bibliography}
 \bibliographystyle{apacite} 
