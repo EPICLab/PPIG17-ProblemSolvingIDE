@@ -63,26 +63,6 @@ In particular, we look at the actions of: (1) articulating \& refining alternati
 Based upon our observations, we propose a new user interface for IDEs which enables previously underrepresented aspects of problem-solving; specifically addressing the disparity in support for these three aspects. 
 \end{abstract}
 
-\section{Introduction}
-\bold{Scenario to illustrate programming as problem-solving}\vspace*{-0.4\baselineskip}
-
-Imagine a scenario in which Sally, a junior developer, is tasked with updating a specific feature to take advantage of a new architecture within the core API of the larger software project. In the process of accomplishing this task, she must use several different applications and a variety of file formats.
-
-Sally begins her project by logging into the company's issue tracker and assigning the associated issue to herself.
-She also downloads and opens several documents included with the feature issue; a PDF document containing sketches and notes from the design team, a list of requirements from the marketing team, and another PDF document containing an estimated timeline from the project manager assigned to this project.
-Before beginning to write code, Sally decides that she needs to understand the area of code she will be modifying and drafts a plan for how to implement those modifications.
-To accomplish these sub-tasks, she spends a day reading through the code using an IDE and sketching potential implementations on a piece of paper using shapes and arrows to represent different abstractions of the code.
-After exhausting her initial ideas, she works through some of the more promising sketches to determine the feasibility of each alternative.
-
-The sketches and ideas that appear to have the most strengths (and inversely, the least weaknesses) for this specific situation will require modifying certain portions of the core architecture of the software.
-Since changes to the core architecture will affect the rest of the development team, and could potentially interrupt development in other areas of the project, Sally sends emails to Mark (the senior developer on her team) and the project manager.
-After several rounds of emails, and one project meeting organized by the project manager, Sally has notes scribbled on several pieces of paper, a trail of emails between different stakeholders, and a verbally-communicated history of why and how the code is organized the way it is today.
-
-Converting all of the information contained within these different artifacts into useful code requires coalescing only the best aspects into a single solution.
-Sally is able to complete her task, but not without significant effort to remain organized.
-Working with non-code artifacts requires Sally to add additional tools into her workspace, which increases the complexity of accomplishing her tasks.
-Throughout this scenario, Sally is forced to employ a variety of tools that accomplish particular portions of her task but none allow her to focus on the entire task.
-
 \section{Programming as Problem-Solving}
 
 \bold{Introduction to our model of programming as problem-solving, and the mapping between problem-solving psychology and programming tasks}
@@ -97,7 +77,6 @@ As a final example, programmers are known to not pursue a single solution, but t
 By applying prior work on problem-solving from a cognitive psychology perspective~\cite{mayer1992thinking}, we can classify these actions, respectively, into \textit{representing relevant information}, \textit{contextualizing information}, and \textit{generating alternatives}.
 These actions can then be generalized to represent the problem-solving activities of \textit{externalizing thoughts \& ideas} and \textit{developing strategies}.
 
-\discuss{For André: Does the following paragraph say what was stated in your previous notes in the margins?\\}
 Table~\ref{matrix} summarizes the full set of problem-solving activities employed during programming sessions, based on an extensive survey of literature that we performed.
 The activities broadly fall into six categories, with specific types of actions providing detail to the high-level abstractions of the activities.
 Clearly not every task needs all of these problem-solving actions, and there is no linearity to the order in which they are employed.
@@ -146,7 +125,19 @@ At the same time, all of these activities and actions have been observed to happ
 \section{Challenges}
 \bold{Discussion of challenges associated with current IDEs/problem-solving in programming}
 
-\discuss{For André: How should we present challenges in regards to modern IDEs (and their UI)?\\}
+\begin{enumerate}
+	\item How to support formulating the problem and reflect on solutions?
+	\subitem Rapidly explore/articulate/reflect on alternatives.
+	\subitem Mix and match of alternatives.
+	\item How to support viewing the context that defines the problem sphere?
+	\item How to support the variety of information processing and orientation styles of developers?
+	\subitem Visio-spatial reasoning styles (spatially-oriented vs ...)
+	\subitem Information processing styles (comprehensive vs ...)
+	\item How to support understanding the contextual history that lead to a solution? (i.e. breadcrumbs)
+	\item How to enable collaboration in problem-solving not just on code, but on everything involved in problem-solving?
+	\item How to use all of this information and context to support actual programming?
+\end{enumerate}
+
 Modern IDEs adhere to some common design principles: clarity, consistency, progressive disclosure, and strong visual hierarchies.
 Clarity to allow users to understand what they are interacting with, predict what will happen when they use it, and then successfully interact with it.
 Consistent in both the design of elements shown to users and the behaviors associated with those elements.
@@ -164,6 +155,26 @@ Henley and Fleming similarly examined the tedious nature of navigating large inf
 Da Silva et al. proposed a conflict avoidance approach to developer coordination problems which combines Emerging Design and side-by-side presentation in an architecture called Lighthouse~\cite{dasilva2006lighthouse}.
 The Lighthouse user interface provides time-sensitive information about parallel changes introduced to a shared codebase in a novel approach to information awareness between developers in a team environment.
 We seek to take these experiments a step further and examine whether combining the paradigm of programming as problem-solving and alternative UI design can further enable developers in developing solutions to computational problems.
+
+\section{Introduction}
+\bold{Scenario to illustrate programming as problem-solving}\vspace*{-0.4\baselineskip}
+
+Imagine a scenario in which Sally, a junior developer, is tasked with updating a specific feature to take advantage of a new architecture within the core API of the larger software project. In the process of accomplishing this task, she must use several different applications and a variety of file formats.
+
+Sally begins her project by logging into the company's issue tracker and assigning the associated issue to herself.
+She also downloads and opens several documents included with the feature issue; a PDF document containing sketches and notes from the design team, a list of requirements from the marketing team, and another PDF document containing an estimated timeline from the project manager assigned to this project.
+Before beginning to write code, Sally decides that she needs to understand the area of code she will be modifying and drafts a plan for how to implement those modifications.
+To accomplish these sub-tasks, she spends a day reading through the code using an IDE and sketching potential implementations on a piece of paper using shapes and arrows to represent different abstractions of the code.
+After exhausting her initial ideas, she works through some of the more promising sketches to determine the feasibility of each alternative.
+
+The sketches and ideas that appear to have the most strengths (and inversely, the least weaknesses) for this specific situation will require modifying certain portions of the core architecture of the software.
+Since changes to the core architecture will affect the rest of the development team, and could potentially interrupt development in other areas of the project, Sally sends emails to Mark (the senior developer on her team) and the project manager.
+After several rounds of emails, and one project meeting organized by the project manager, Sally has notes scribbled on several pieces of paper, a trail of emails between different stakeholders, and a verbally-communicated history of why and how the code is organized the way it is today.
+
+Converting all of the information contained within these different artifacts into useful code requires coalescing only the best aspects into a single solution.
+Sally is able to complete her task, but not without significant effort to remain organized.
+Working with non-code artifacts requires Sally to add additional tools into her workspace, which increases the complexity of accomplishing her tasks.
+Throughout this scenario, Sally is forced to employ a variety of tools that accomplish particular portions of her task but none allow her to focus on the entire task.
 
 \section{IDEs as Problem-Solving Tools}
 \bold{Present and discuss our envisioned solution\\}
