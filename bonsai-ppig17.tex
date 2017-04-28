@@ -65,23 +65,24 @@ Based upon our observations, we propose a new user interface for IDEs which enab
 
 \section{Programming as Problem-Solving}
 
-\bold{Introduction to our model of programming as problem-solving, and the mapping between problem-solving psychology and programming tasks}
+\bold{Introduction to our model of programming as problem-solving, and the mapping between problem-solving psychology and programming tasks}\\
+Programming is more than the language syntax and semantics. It is inherently a problem solving exercise; involving an iterative process of refining mental representations of computational problems and solutions and expressing those representations as code~\cite{loksa2016programming}
 
-Examining the disparate and dispersed nature of artifacts in Sally's situation, which exemplifies a typical situation for programmers, we see that a new way of understanding the nature of programming is needed.
-We propose using problem-solving as a lens to examine programming tools, specifically IDEs, to assist in identifying which aspects of programming are not being supported and to determine how to address those gaps.
+We are not the first to note that the act of programming extends beyond activities of editing code in the IDE. It is much more than code...It requires gatherting information from multiple sources.[solito]....It is about creating mental models of the structures...It is about exploring and evaluating...
 
-Much is known already about programming being a problem-solving activity beyond editing code in the editor provided by the IDE.
-During software development, for instance, programmers are known to create all sorts of auxiliary non-code artifacts~\cite{cherubini2007whiteboard}.
-As a second example, programmers are known to organize these artifacts into structures that are relevant to the particular task(s) they are currently focused upon~\cite{baltes2016empirical}.
-As a final example, programmers are known to not pursue a single solution, but to generally approach a task by exploring (either mentally or externalized) multiple alternative solutions~\cite{madeyski2017experimentation}.
-By applying prior work on problem-solving from a cognitive psychology perspective~\cite{mayer1992thinking}, we can classify these actions, respectively, into \textit{representing relevant information}, \textit{contextualizing information}, and \textit{generating alternatives}.
-These actions can then be generalized to represent the problem-solving activities of \textit{externalizing thoughts \& ideas} and \textit{developing strategies}.
+% Much is known already about programming being a problem-solving activity beyond editing code in the editor provided by the IDE.
+% During software development, for instance, programmers are known to create all sorts of auxiliary non-code artifacts~\cite{cherubini2007whiteboard}.
+% As a second example, programmers are known to organize these artifacts into structures that are relevant to the particular task(s) they are currently focused upon~\cite{baltes2016empirical}.
+% As a final example, programmers are known to not pursue a single solution, but to generally approach a task by exploring (either mentally or externalized) multiple alternative solutions~\cite{madeyski2017experimentation}.
+% By applying prior work on problem-solving from a cognitive psychology perspective~\cite{mayer1992thinking}, we can classify these actions, respectively, into \textit{representing relevant information}, \textit{contextualizing information}, and \textit{generating alternatives}.
+% These actions can then be generalized to represent the problem-solving activities of \textit{externalizing thoughts \& ideas} and \textit{developing strategies}.
 
-Table~\ref{matrix} summarizes the full set of problem-solving activities employed during programming sessions, based on an extensive survey of literature that we performed.
-The activities broadly fall into six categories, with specific types of actions providing detail to the high-level abstractions of the activities.
+Table~\ref{matrix} summarizes the problem-solving activities that developers employ during programming sessions, based on our analysis of literature of programmign needs. The activities broadly fall into six categories, with specific types of actions providing details to the high-level abstractions of the activities.
 Clearly not every task needs all of these problem-solving actions, and there is no linearity to the order in which they are employed.
-Sometimes these actions are not observed because they happen in the programmer's head.
-At the same time, all of these activities and actions have been observed to happen, they serve as important roles in knowledge base to the programming problem at hand.
+Sometimes these actions may not even be observable when it is done in the programmer's head.
+At the same time, we know that these activities do occur and play an important role in how programmers arrive at a solution to the computational problem at hand.
+
+Current IDEs only look at a sliver of the entire programming activities - mainly navigating and editing the codebase.
 
 \begin{table}[!htbp]
 \caption{Activities and Actions of Programming as Problem-Solving}
@@ -125,16 +126,35 @@ At the same time, all of these activities and actions have been observed to happ
 \section{Challenges}
 \bold{Discussion of challenges associated with current IDEs/problem-solving in programming}
 
+\todo{Add reference names to activities in Table 1\\}
+There are numerous, hard, challenges in being able to support the entire gamut of stuff that is problem solving in programming.
+These challenges span the different set of activiites (TableX) in problem solving, even those activities (enacting changes) that have been traditionally supported by IDE still have gaps when we look at what is needed for problem solving.
+
+Supporting programmers in problem solving is a hard problem when needing to understand the human aspects how people think, what is the dev process need, what is the type of problem, what knowledge already exists, what support already exists (and gaps in available support). Therefore, cerwatring an IDE htat is actually meant to support all the different aspects of programming (from the PS perspective) requires a careful thinking of these diofferent aspects and how they combine. Adding piecemeal functionality to existing IDE thereofreo is not hte right silution.
+
+here we articulate the main challenges as we see to providing such a holistic <gets to the heart> of the problem.
+
 \begin{enumerate}
-	\item How to support formulating the problem and reflect on solutions?
-	\subitem Rapidly explore/articulate/reflect on alternatives.
-	\subitem Mix and match of alternatives.
-	\item How to support viewing the context that defines the problem sphere?
-	\item How to support the variety of information processing and orientation styles of developers?
+	\item \textit\textbf{{How to support developers in formulating the problem and reflecting on solutions?}}
+	Developers do not just arrive at a solution. they need to first \textit{contextualize} the computaional problem in terms of what htey know and how they can get towartds a possible solution. After which, they may explore, articulate, and reflect on different alternatives they try - these activities are interleaved, sometimes even happening at the same time (e.g., a developer may reflect on the solution as they articulate it), and encompass sevaral quick iterations. And sometimes there is no one right solution, the best solution requires mixing and matching bits of (solution) pieces from multipel alternatives.
+    
+    
+    \item \textit\textbf{{How to support viewing the context that defines (relevants) the problem sphere?}}
+   no program is an island - the solution needs to exist in the context of the rest of the code space (where it fits, what it calls, who will it call it)Redmiles Icse 2008, the desired behavior of the code snippet (computational speed, usability), the team policy (license, code style), and history (something has already been tried and rejected). Information that defines context is not directly there, and needs to be cobbled together from different types of artifacts that span the code base, design adn requirement artifacts, communicaiton including written or in meetings, past edits to the project artifacts, etc. A user needs to know where these pieces of information reside and then cherry pick the items that actually pertain to the problem at hand.
+    
+ 	\item How to support the variety of information processing and orientation styles of developers?
 	\subitem Visio-spatial reasoning styles (spatially-oriented vs ...)
 	\subitem Information processing styles (comprehensive vs ...)
-	\item How to support understanding the contextual history that lead to a solution? (i.e. breadcrumbs)
-	\item How to enable collaboration in problem-solving not just on code, but on everything involved in problem-solving?
+  
+  
+  
+  \item How to support understanding the contextual history that lead to a solution? (i.e. breadcrumbs)
+    This is what I myself did in the past when expoloring alternatives and how and where this current stuff I am doing I can compare against.
+  When they are doing the solving, people need to understand all of the previous problem solving spaces of themselves and others (providence) in order to transition from contemplation into actualizing (enacting) a solution.  
+  	
+
+
+\item How to enable collaboration in problem-solving not just on code, but on everything involved in problem-solving?
 	\item How to use all of this information and context to support actual programming?
 \end{enumerate}
 
