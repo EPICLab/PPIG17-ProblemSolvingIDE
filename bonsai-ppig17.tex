@@ -54,23 +54,22 @@
 
 \begin{abstract}
 
-Programming is inherently a problem-solving exercise.
-When solving computational problems a programmer has to cultivate an understanding of the situation, externalize and contextualize thoughts \& ideas, develop strategies to properly address the problem, enact changes according to the most appropriate strategies, and retrospectively learn from each problem.
+Programming is inherently a problem-solving exercise: A programmer has to cultivate an understanding of the situation, externalize and contextualize thoughts \& ideas, develop strategies on how to proceed with the task, enact changes according to the most appropriate strategy, and retrospectively learn from each problem.
 Therefore, programming is clearly more than just code input, testing, and maintenance.
-Current IDEs, however, only support the "writing code" parts of programming.
-In this paper, we revisit which activities \& actions constitute programming and highlight six challenges to supporting these activities.
-In particular, we then envision a new paradigm of interacting with the IDE that directly support each of the six activities and moves toward solutions to these six challenges. 
+Current IDEs, however, largely focus on the "writing code" parts of programming.
+In this paper, we revisit which activities and actions constitute programming, and highlight six challenges to supporting these activities.
+We then briefly describe a new paradigm of interacting with the IDE that we are working on to more directly support each of the six activities. 
 \end{abstract}
 
 \section{Programming as Problem-Solving}
 
-Programming is more than language syntax and semantics; it is inherently an exercise in problem-solving.
-Programming is an iterative process of refining mental representations of computational problems and solutions and expressing those representations as code~\cite{loksa2016programming}.
+Programming is more than dealing with language syntax and semantics: it is inherently an exercise in problem-solving that extends beyond the act of editing code in an Integrated Development Environment (IDE).
+We are not the first to observe this.
+For instance, programming has been characterized as an iterative process of refining mental representations of computational problems and solutions and expressing those representations as code~\cite{loksa2016programming}.
 
-We are not the first to observe that the act of programming extends beyond the act of editing code in an Integrated Development Environment (IDE).
-Leslie Lamport once opened a lecture with the statement, ``no one just starts writing code and hopes it happens to implement a web browser''~\cite{lamport2015lecture}.
-He was advocating for design and specification prior to coding, but this statement also highlights the insight that programming requiring thinking in a problem-solving manner at higher abstractions than code.
-Further, programming requires gathering information from multiple sources~\cite{sillito2008asking}, includes creating mental models of program structures~\cite{von1995comprehension}, and involves exploring and evaluating many alternatives~\cite{hartmann2008design}.
+As an example, Leslie Lamport once opened a lecture with the statement, ``no one just starts writing code and hopes it happens to implement a web browser''~\cite{lamport2015lecture}.
+He was advocating for design and specification prior to coding, but this statement also highlights the insight that programming requires thinking in a problem-solving manner at higher levels of abstraction than code.
+Further evidence for the fact that programming is more than just coding is promoted by studies that have highlighted that programming requires gathering information from multiple sources~\cite{sillito2008asking}, includes creating mental models of program structures~\cite{von1995comprehension}, and involves exploring and evaluating many alternatives~\cite{hartmann2008design}.
 
 % Much is known already about programming being a problem-solving activity beyond editing code in the editor provided by the IDE.
 % During software development, for instance, programmers are known to create all sorts of auxiliary non-code artifacts~\cite{cherubini2007whiteboard}.
@@ -81,24 +80,23 @@ Further, programming requires gathering information from multiple sources~\cite{
 
 \input{table_pps} % Programming as Problem-Solving Matrix
 
-Table~\ref{pps_matrix} summarizes the problem-solving activities that developers employ during programming sessions, based on our analysis of literature of programming needs.
-The activities broadly fall into six categories (\textit{Activities} column), with specific types of actions providing details to the high-level abstractions of the activities (\textit{Actions} column).
-Clearly not every task needs all of these problem-solving actions, and there is no linearity to the order in which they are employed.
+We have surveyed the literature from the perspective of programming as problem-solving, leading to Table~\ref{pps_matrix} which summarizes problem-solving activities that developers employ during programming sessions.
+Problem-solving in programming partitions into six categories (\textit{Activities} column), with specific actions  that represent in more detail how the high-level activities manifest themselves (\textit{Actions} column).
+Clearly, not every task involves all of these problem-solving actions, and there is no linearity to the order in which they are employed.
 Sometimes these actions may not even be observable when an action is done in the programmer's head.
-At the same time, we know that these activities do occur and play an important role in how programmers arrive at a solution to the computational problem at hand.
-
-Current IDEs only look at a sliver of the entire spectrum of programming activities; primarily focusing on support for navigating and editing the codebase.
+At the same time, literature has documented that these activities do occur and play an important role in how programmers arrive at a solution to the programming problem at hand.
 
 \section{Challenges}
 
-There are numerous challenges in being able to support the entire gamut of actions that comprise problem-solving in programming.
-These challenges span the different categories of activities (see Table~\ref{pps_matrix}, \textit{Activities} A1-A6), and even those activities (A4) that have traditionally been supported by IDEs have gaps in support when examined as problem-solving activities.
+Within this context, it is surprising that current IDEs only support some of this entire spectrum of programming activities, primarily focusing on support for navigating and editing the codebase.
+Numerous challenges arise in current IDEs supporting the full set of actions that comprise problem-solving in programming.
+These challenges span the different categories of activities (see Table~\ref{pps_matrix}, \textit{Activities} A1-A6), and even those activities (A4: \textit{enacting change}) that have traditionally been supported by IDEs have gaps in support when examined as problem-solving activities.
 
-Supporting programmers in problem solving is a hard problem when we recognize that we need to understand human aspects such as how people think when programming, what development processes are required, what is the type of the current problem, what knowledge already exists in relation to that problem, and what support (or lack thereof) already exists from previous problem solving efforts.
+Supporting programmers in problem-solving is a difficult problem when we recognize that we need to understand human aspects such as how people think when programming, what development processes are required, what skills are best suited for the current problem, what knowledge already exists in relation to that problem, and what support (or lack thereof) already exists from previous problem solving efforts.
 Therefore, creating an IDE that is meant to support all the different aspects of programming, from the problem-solving perspective, requires a careful analysis of both the individual aspects and their combinations.
-Adding piece-meal functionality to existing IDEs, therefore, is not the right solution.
+We believe that it is necessary to fundamentally rethink IDEs.
 
-Here we articulate the main challenges to providing such a holistic <gets to the heart> of the problem.
+To guide such a rethinking, the following challenges characterize what kind of novel support is needed for programming as problem-solving:
 
 \begin{enumerate}
 	\item \textit{\textbf{How to support programmers in formulating problems and reflecting on solutions?}}
@@ -108,34 +106,37 @@ Here we articulate the main challenges to providing such a holistic <gets to the
 	Often there is no single correct solution, and the best solution requires mixing and matching elements from multiple alternative solutions.
     
     \item \textit{\textbf{How to support programmers in viewing the relevant context in a problem space?}}
-    No program is an island and the solution contained within it must exist in the context of the rest of the code space.
+    No program is an island and the solution contained within it must exist in the context of the rest of the codebase and its related artifacts.
     Programmers need to understand where a code snippet fits in a codebase, what it calls out to, and what calls into it~\cite{desouza2008empirical}, the desired behaviors of the code snippet (e.g., computational speed, usability, feature sets), organizational policies (e.g., licensing, process standards, code style), and historical development (e.g., has a solution previously been tried and rejected).
     Information that defines the context is not always directly available, and instead, must be cobbled from different types of artifacts that span the codebase, design/requirement artifacts, communications records (i.e. handwritten, emails, group fileserver), edit history for project artifacts, etc.
-    A user needs to know where these individual pieces of information reside and how to cherry-pick the items that actually pertain to the problem at hand.
+    A developer needs to know where these individual pieces of information reside and how to cherry-pick the items that actually pertain to the problem at hand.
     
  	\item \textit{\textbf{How to support the variety of information processing and workflow styles of programmers?}}
  	Programmers exhibit creativity in their problem-solving activities, and the diversity of approaches means that no two programmers are the same.
  	Male programmers prefer to use a \textit{heuristic} (or \textit{selective}) approach that involves striving for efficiency by following contextually salient cues, whereas female programmers process information \textit{comprehensively}, seeking a more complete understanding of the problem~\cite{grigoreanu2012end}.
- 	Visuospatial reasoning serves as a ubiquitous basis for abstract knowledge and inference, and is core component to rationalizing the world around us~\cite{tversky2005visuospatial}.
+ 	Visuospatial reasoning serves as a ubiquitous basis for abstract knowledge and inference, and is a core component to rationalizing the world around us~\cite{tversky2005visuospatial}.
  	When problem-solving, programmers bring their visuospatial reasoning and information processing style to bare when evaluating and organizing artifacts, solutions, and ideas.
   
   \item \textit{\textbf{How to support programmer understanding of the contextual history that lead to a solution?}}
   Problem-solving in programming does not occur in a vacuum, and neither is it a one-off activity.
   Programmers rely upon past experiences with similar problems, knowledge gained from previous interactions with the same set of artifacts, and memories of prior mental models that allowed comprehension and problem-solving to succeed.
-  When solving a computational problem, programmers need to orient around both their own and others' problem-solving spaces in order to transition from contemplating into actualizing (enacting) a solution.
+  When solving a programming problem, programmers need to orient around both their own and others' problem-solving spaces in order to transition from contemplating into actualizing (enacting) a solution.
   
   \item \textit{\textbf{How to enable collaboration between programmers when problem-solving not just code, but all related artifacts?}}
-  Organizing yourself in relation to a problem creates a cognitive load~\cite{sweller1988cognitive}, and this load only increases when you add collaborators into the problem-solving process.
-  When information is spread across multiple information sources (e.g. code, sketches, written notes), programmers quickly exceed the $7\pm2$ capacity of their short-term memory~\cite{lisman1995storage}.
+  Organizing oneself in relation to a problem creates a cognitive load~\cite{sweller1988cognitive}, and this load only increases when one adds collaborators.
+  When information is spread across multiple information sources (e.g., code, sketches, written notes), programmers quickly exceed the $7\pm2$ capacity of their short-term memory~\cite{lisman1995storage}.
   Therefore, programmers must conceptualize artifacts and information into abstractions that allow for both the pursuit of a solution and sharing in order to enable multiple problem-solvers to operate cohesively.
   
   \item \textit{\textbf{How to enable the use of all of this information and context to support the act of coding?}}
-  Solutions to computational problems must be represented in code, and that code must be generated according to the problem-solving space created by a programmer.
-  Therefore, programmers must convert solutions into actual software.
-  And this process is non-linear (i.e. coding sessions start and stop), concurrent with all other problem-solving activities, and loosely organized (i.e. solutions are partially implemented, abandoned, recovered, etc.).
+  Solutions to programming problems must eventually be represented in code.
+  Therefore, programmers must convert their conceptual solutions into actual lines of code.
+  This process is non-linear (i.e., coding sessions start and stop), concurrent with all other problem-solving activities, and loosely organized (e.g., solutions are partially implemented, abandoned, and recovered).
   Therefore, programmers must cope with high-complexity coding sessions in the pursuit of simple, elegant software solutions.
 \end{enumerate}
 
+\section{Toward A New IDE}
+
+\todo{Remove this paragraph and weave citations into the description of the IDE}\\
 Previous work on alternative UI models for IDEs have focused on expanding the interface to allow more dynamic interactions for code comprehension and orientation.
 Bragdon et al. proposed a user interface comprised of lightweight, editable fragments called bubbles, which form concurrently visible working sets in an interface called Code Bubbles~\cite{bragdon2010bubbles}.
 DeLine et al. explored leveraging spatial memory to keep developers oriented by providing an infinite zoomable surface for software development, called Code Canvas~\cite{deline2010canvas}.
@@ -146,8 +147,6 @@ Da Silva et al. proposed a conflict avoidance approach to developer coordination
 The Lighthouse user interface provides time-sensitive information about parallel changes introduced to a shared codebase in a novel approach to information awareness between developers in a team environment.
 We seek to take these experiments a step further and examine whether combining the paradigm of programming as problem-solving and alternative UI design can further enable developers to use their innate problem-solving abilities.
 
-\section{IDEs as Problem-Solving Tools}
-\bold{Present and discuss our envisioned solution\\}
 To address these challenges, we have begun a research effort that attempts to rethink the IDE from the ground up using the problem-solving perspective as a paradigm shift for evaluating our design rationale.
 We use Code Bubbles~\cite{bragdon2010bubbles} and Code Canvas~\cite{deline2010canvas} as key inspirations for interface designs that eschew window-based interfaces and explore spatial interfaces allowing users to project meaning onto the layout of their development environment.
 Extending the zoomable canvas of Code Canvas and the code bubble windows of Code Bubbles, we explore these and other concepts from interface design to support the problem-solving activities that programmers encounter.
