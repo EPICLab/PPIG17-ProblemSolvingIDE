@@ -148,7 +148,7 @@ We seek to take these experiments a step further and examine whether combining t
 
 \section{IDEs as Problem-Solving Tools}
 \bold{Present and discuss our envisioned solution\\}
-To address these challenges, we have begun a long-term research effort that attempts to rethink the IDE from the ground up using the problem-solving perspective as a paradigm shift for evaluating our design rationale.
+To address these challenges, we have begun a research effort that attempts to rethink the IDE from the ground up using the problem-solving perspective as a paradigm shift for evaluating our design rationale.
 We use Code Bubbles~\cite{bragdon2010bubbles} and Code Canvas~\cite{deline2010canvas} as key inspirations for interface designs that eschew window-based interfaces and explore spatial interfaces allowing users to project meaning onto the layout of their development environment.
 Extending the zoomable canvas of Code Canvas and the code bubble windows of Code Bubbles, we explore these and other concepts from interface design to support the problem-solving activities that programmers encounter.
 
@@ -156,7 +156,7 @@ Modern IDEs are comprised of different information sources being presented in a 
 According to the Gestalt school of thought, our perception of the world is influenced by the way we group and segregate the visual stimuli presented to us~\cite{kimchi2003perceptual}.
 Instead of perceiving individual and distinct objects in the world, we perceive objects that are logically connected to each other~\cite{kimchi2003perceptual}.
 The strength of grouping objects is inversely proportional to the distance between the elements~\cite{bergman2009peirce}; therefore, the closer the elements are to each other the stronger our perception is that these belong to the same group.
-To take advantage of the neuro-cognitive process of perceptual organization, we propose a cards-based interface which allows card positioning and stacking for logical organization across user-driven tasks.
+To take advantage of the neuro-cognitive process of perceptual organization, we propose a cards-based interface which allows card to be placed and stacked according to the logical organization that a user requires to develop a solution.
 
 Programming activities span editing code to sketching ideas on whiteboards, with each action serving different problem-solving aspects in pursuit of a solution.
 In order to support this variety of actions, we propose that cards in our cards-based interface come in different types that support specific information sources and interactions while providing a common platform.
@@ -170,15 +170,17 @@ These card types can include code editors for working with code in specific prog
 	\vspace*{-1.5\baselineskip}
 \end{figure}
 
-To illustrate our proposed IDE, we present Figure~\ref{mockup} as an illustration of cards used by Sally to accomplish her task using our cards-based user interface.
-We describe the scenario in which Sally is tasked with updating a feature to use a new API, but reimagined to use an IDE based on the problem-solving perspective.
+\section{Applications}
 
-Sally initially opens a GitHub Integration card (\texttt{C1}) that retrieves information through the GitHub API and formats the results for a condensed presentation of the description, tags, issue status, and activity history.
+To illustrate our proposed IDE, we present a high-fidelity interface design in Figure~\ref{mockup} and discuss the individual cards and stack elements contained within using a example scenario.
+This scenario revolves around Sally, a junior developer tasked with updating the rendering engine within a web browser to use the latest API.
+Her goal is a code-based solution to performing maintenance on a large and complex codebase, which requires prior design and forethought before enacting any changes.
+
+Sally initially opens an issue tracker card (\texttt{C1}) that presents a condensed view of the description, tags, status, and history associated with her target issue.
 The related issue on GitHub contains more activity events than can be presented on the card, and therefore an overflow indicator (three dots below the card) appears to give a visual cue that further information can be accessed via a swiping interaction.
-Since Sally is interested in filling in her knowledge gaps about the issue, and any prior knowledge available, she elects to flip the card around and examine the metadata related to card \texttt{C1}.
-The reverse card face (\texttt{C2}) contains meta-information related to when the card was created within the IDE, card type, creator, access logs for the card, and any linked files.
+Since Sally is interested in filling in her knowledge gaps about the issue, and any prior knowledge available, she flips the card around and examine the metadata on the back of the card.
+The reverse card face (\texttt{C2}) contains meta-information related to when the card was originally opened, the card type, creator, access logs for the card, and any linked files.
 Selecting the PDF \texttt{``Draft\_Design\_v11''}, Sally is able to launch a new PDF Viewer card (\texttt{C3}) that contains the sketches and notes from the design team.
-She could also open a Text Viewer card and an Image Viewer card for the requirements list from the marketing team and timeline from the project manager from within the linked files section of \texttt{C2}.
 
 Once Sally has grasped the available prior knowledge, contextualized it according to her task, and begun to develop strategies for completing the task she can open additional cards for code exploration and development.
 Opening a Java Code Editor card (\texttt{C4}) that contains the target area of code that she will be modifying allows her to simultaneously reference documents from her previous information gathering while working on the code implementation.
@@ -188,28 +190,10 @@ These shared cards allow both Sally and Mark to edit code simultaneously and sha
 If Mark, or any of the other stakeholders on the project, is unavailable for connecting to the shared cards and instead sends emails to Sally with ideas, sketches, and code snippets, Sally can open each of those emails in Composer Email cards (\texttt{C6-C9}) directly within her IDE workspace.
 She can copy and paste the code snippets from the emails and into the Java Code Editor cards without having to switch between two separate applications and manage multiple associated windows.
 
-This example illustrates the process of \textit{collecting alternative solutions}, 
-\textit{assessing the feasibility of the alternative solutions}, \textit{examining the applicability of the alternative solutions}, and finally \textit{recombining and consolidating the best aspects into a new solution}.
-Traditional IDEs are incapable of supporting these types of activities without relying upon plugins or additional external applications; which typically adhere to different user interface designs and increasing interoperability complexity.
 
-\section{Scenario}
 
-Imagine a scenario in which Sally, a junior developer, is tasked with updating a specific feature to take advantage of a new architecture within the core API of the larger software project. In the process of accomplishing this task, she must use several different applications and a variety of file formats.
-
-Sally begins her project by logging into the company's issue tracker and assigning the associated issue to herself.
-She also downloads and opens several documents included with the feature issue; a PDF document containing sketches and notes from the design team, a list of requirements from the marketing team, and another PDF document containing an estimated timeline from the project manager assigned to this project.
-Before beginning to write code, Sally decides that she needs to understand the area of code she will be modifying and drafts a plan for how to implement those modifications.
-To accomplish these sub-tasks, she spends a day reading through the code using an IDE and sketching potential implementations on a piece of paper using shapes and arrows to represent different abstractions of the code.
-After exhausting her initial ideas, she works through some of the more promising sketches to determine the feasibility of each alternative.
-
-The sketches and ideas that appear to have the most strengths (and inversely, the least weaknesses) for this specific situation will require modifying certain portions of the core architecture of the software.
-Since changes to the core architecture will affect the rest of the development team, and could potentially interrupt development in other areas of the project, Sally sends emails to Mark (the senior developer on her team) and the project manager.
-After several rounds of emails, and one project meeting organized by the project manager, Sally has notes scribbled on several pieces of paper, a trail of emails between different stakeholders, and a verbally-communicated history of why and how the code is organized the way it is today.
-
-Converting all of the information contained within these different artifacts into useful code requires coalescing only the best aspects into a single solution.
-Sally is able to complete her task, but not without significant effort to remain organized.
-Working with non-code artifacts requires Sally to add additional tools into her workspace, which increases the complexity of accomplishing her tasks.
-Throughout this scenario, Sally is forced to employ a variety of tools that accomplish particular portions of her task but none allow her to focus on the entire task.
+This example illustrates the \textit{developing strategies} (A3) actions of \textit{generating alternatives}, \textit{articulating \& refining alternatives}, \textit{understanding \& assessing alternatives}, and \textit{recombining aspects of alternatives}.
+Traditional IDEs have beenx incapable of supporting these types of activities without relying upon plugins or additional external applications.
 
 \bibliography{bibliography}
 \bibliographystyle{apacite} 
