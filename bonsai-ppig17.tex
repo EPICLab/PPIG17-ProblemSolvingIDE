@@ -86,7 +86,7 @@ Clearly, not every task involves all of these problem-solving actions, and there
 Sometimes these actions may not even be observable when an action is done in the programmer's head.
 At the same time, literature has documented that these activities do occur and play an important role in how programmers arrive at a solution to the programming problem at hand.
 
-\section{Challenges}
+\section{Challenges}\label{challenges}
 
 Within this context, it is surprising that current IDEs only support some of this entire spectrum of programming activities, primarily focusing on support for navigating and editing the codebase.
 Numerous challenges arise in current IDEs supporting the full set of actions that comprise problem-solving in programming.
@@ -136,63 +136,38 @@ To guide such a rethinking, the following challenges characterize what kind of n
 
 \section{Toward A New IDE}
 
-\todo{Remove this paragraph and weave citations into the description of the IDE}\\
-Previous work on alternative UI models for IDEs have focused on expanding the interface to allow more dynamic interactions for code comprehension and orientation.
-Bragdon et al. proposed a user interface comprised of lightweight, editable fragments called bubbles, which form concurrently visible working sets in an interface called Code Bubbles~\cite{bragdon2010bubbles}.
-DeLine et al. explored leveraging spatial memory to keep developers oriented by providing an infinite zoomable surface for software development, called Code Canvas~\cite{deline2010canvas}.
-And combining efforts, the Code Bubbles team at Brown University and the Code Canvas team at Microsoft Research jointly created Debugger Canvas which provides collections of code bubbles on a two-dimensional pan-and-zoom interface~\cite{deline2012debugger}.
-The interface models developed by these teams provide both theoretical and practical experience into alternative UI designs that help to break the mold of the ``bento-box'' model of IDEs.
-Henley and Fleming similarly examined the tedious nature of navigating large information spaces and sought to reduce this burden for developers through a code editor UI that consists of a patch grid and a ribbon for navigating quickly through sets of code~\cite{henley2014patchworks}.
-Da Silva et al. proposed a conflict avoidance approach to developer coordination problems which combines Emerging Design and side-by-side presentation in an architecture called Lighthouse~\cite{dasilva2006lighthouse}.
-The Lighthouse user interface provides time-sensitive information about parallel changes introduced to a shared codebase in a novel approach to information awareness between developers in a team environment.
-We seek to take these experiments a step further and examine whether combining the paradigm of programming as problem-solving and alternative UI design can further enable developers to use their innate problem-solving abilities.
-
 To address these challenges, we have begun a research effort that attempts to rethink the IDE from the ground up using the problem-solving perspective as a paradigm shift for evaluating our design rationale.
-We use Code Bubbles~\cite{bragdon2010bubbles} and Code Canvas~\cite{deline2010canvas} as key inspirations for interface designs that eschew window-based interfaces and explore spatial interfaces allowing users to project meaning onto the layout of their development environment.
-Extending the zoomable canvas of Code Canvas and the code bubble windows of Code Bubbles, we explore these and other concepts from interface design to support the problem-solving activities that programmers encounter.
-
-Modern IDEs are comprised of different information sources being presented in a variety of visual elements that must be organized and comprehended by users.
-According to the Gestalt school of thought, our perception of the world is influenced by the way we group and segregate the visual stimuli presented to us~\cite{kimchi2003perceptual}.
-Instead of perceiving individual and distinct objects in the world, we perceive objects that are logically connected to each other~\cite{kimchi2003perceptual}.
-The strength of grouping objects is inversely proportional to the distance between the elements~\cite{bergman2009peirce}; therefore, the closer the elements are to each other the stronger our perception is that these belong to the same group.
-To take advantage of the neuro-cognitive process of perceptual organization, we propose a cards-based interface which allows card to be placed and stacked according to the logical organization that a user requires to develop a solution.
-
-Programming activities span editing code to sketching ideas on whiteboards, with each action serving different problem-solving aspects in pursuit of a solution.
-In order to support this variety of actions, we propose that cards in our cards-based interface come in different types that support specific information sources and interactions while providing a common platform.
-These card types can include code editors for working with code in specific programming languages, sketchpads for both drawing ideas and annotating text, webpages for referencing information sources on the Internet, todo lists for organizing tasks, timelines for managing projects, emails and chat transcripts for communications, etc.
+We use Code Bubbles~\cite{bragdon2010bubbles}, Code Canvas~\cite{deline2010canvas}, Debugger Canvas~\cite{deline2012debugger}, and Patchworks Code Editor~\cite{henley2014patchworks} as key inspirations for interface designs that eschew window-based interfaces and explore spatial interfaces allowing users to project meaning onto the layout of their development environment.
+We also rely upon Lighthouse~\cite{dasilva2006lighthouse} as an inspiration for parallel development awareness in interface design.
+Extending the zoomable canvas of Code Canvas and the bubble windows of Code Bubbles, plus the live information of Lighthouse, we explore these and other concepts from interface design to support the problem-solving activities that programmers encounter.
 
 \begin{figure}[h!]
 	\caption{Cards-based User Interface of a Problem-Solving IDE}
 	\label{mockup}
 	% trim={<left> <lower> <right> <upper>}
-	\fbox{\includegraphics[trim={0.6cm 0.2cm 0.5cm 0.2cm},clip,width=\textwidth]{Mockup-10}}
+	\fbox{\includegraphics[trim={0.6cm 0.2cm 0.6cm 0.2cm},clip,width=\textwidth]{Mockup-10}}
 	\vspace*{-1.5\baselineskip}
 \end{figure}
 
-\section{Applications}
+We include the high-fidelity mockup in Figure~\ref{mockup} to illustrate our proposed user interface for a new IDE that is based upon the programming as problem-solving paradigm and targeted at the challenges described in Section~\ref{challenges}.
 
-To illustrate our proposed IDE, we present a high-fidelity interface design in Figure~\ref{mockup} and discuss the individual cards and stack elements contained within using a example scenario.
-This scenario revolves around Sally, a junior developer tasked with updating the rendering engine within a web browser to use the latest API.
-Her goal is a code-based solution to performing maintenance on a large and complex codebase, which requires prior design and forethought before enacting any changes.
+We propose a cards-based user interface, so that developers can take advantage of the neuro-cognitive process of perceptual organization~\cite{kimchi2003perceptual}.
+Spatial perception allows developers to provide meaning to individual artifacts (i.e., cards) by organizing them in spatial patterns that contextualize the individual artifact, its relation to other artifacts, and the larger purpose.
+As previously demonstrated, developers work with artifacts beyond code and therefore require cards that accommodate those non-code artifacts.
+We propose that our cards would have individual types for different purposes; code editor cards for code artifacts (cards \texttt{C4}, \texttt{C5}), issue tracker cards for problem contextualization (cards \texttt{C1}, \texttt{C2}), image and PDF cards for design documents (card \texttt{C3}), and email viewer cards for communications (cards \texttt{C6-C8}).
+This list is not exhaustive, and we expect that additional card types will be proposed and developed to accommodate additional problem-solving activities.
 
-Sally initially opens an issue tracker card (\texttt{C1}) that presents a condensed view of the description, tags, status, and history associated with her target issue.
-The related issue on GitHub contains more activity events than can be presented on the card, and therefore an overflow indicator (three dots below the card) appears to give a visual cue that further information can be accessed via a swiping interaction.
-Since Sally is interested in filling in her knowledge gaps about the issue, and any prior knowledge available, she flips the card around and examine the metadata on the back of the card.
-The reverse card face (\texttt{C2}) contains meta-information related to when the card was originally opened, the card type, creator, access logs for the card, and any linked files.
-Selecting the PDF \texttt{``Draft\_Design\_v11''}, Sally is able to launch a new PDF Viewer card (\texttt{C3}) that contains the sketches and notes from the design team.
+According to the Gestalt school of thought, our perception of the world is influenced by the way we group and segregate the visual stimuli presented to us~\cite{kimchi2003perceptual}.
+The strength of grouping objects is inversely proportional to the distance between the elements~\cite{bergman2009peirce}; therefore, the closer the elements are to each other the stronger our perception is that these belong to the same group.
+Therefore, we also propose the ability for users to group cards together into stacks of cards that can represent any logical unit of meaning that is necessary for working on the programming problem.
 
-Once Sally has grasped the available prior knowledge, contextualized it according to her task, and begun to develop strategies for completing the task she can open additional cards for code exploration and development.
-Opening a Java Code Editor card (\texttt{C4}) that contains the target area of code that she will be modifying allows her to simultaneously reference documents from her previous information gathering while working on the code implementation.
-Since Sally is not certain that her current changes will be the final solution, she can open an additional Java Code Editor card (\texttt{C5}) which contains the same target area of code prior to the introduction of her proposed changes (thus reflecting the checked-in version).
-When reaching out to Mark, the senior developer on her team, Sally is able to select only the cards relevant to their conversation (\texttt{C4,C5}) and share them with Mark so that he can view them in his own IDE workspace.
-These shared cards allow both Sally and Mark to edit code simultaneously and share thoughts and ideas without barriers that inhibit the exchange of shared knowledge.
-If Mark, or any of the other stakeholders on the project, is unavailable for connecting to the shared cards and instead sends emails to Sally with ideas, sketches, and code snippets, Sally can open each of those emails in Composer Email cards (\texttt{C6-C9}) directly within her IDE workspace.
-She can copy and paste the code snippets from the emails and into the Java Code Editor cards without having to switch between two separate applications and manage multiple associated windows.
+Since developers work together, in a variety of different capacities (see Table~\ref{pps_matrix}, \textit{Activity} A5), we also propose integrated methods for sharing individual cards (or stacks of cards) for either review or simultaneous editing.
+This feature can be seen in cards ~\texttt{C4} and \texttt{C5}, which are shown as being shared between two different developers at the same time.
+Edits from one developer will automatically updated the state of the shared cards in the IDEs of the other developer.
+This sharing requires permissions and identity management which can be dynamically added and revoked as necessary for the programming problem.
 
-
-
-This example illustrates the \textit{developing strategies} (A3) actions of \textit{generating alternatives}, \textit{articulating \& refining alternatives}, \textit{understanding \& assessing alternatives}, and \textit{recombining aspects of alternatives}.
-Traditional IDEs have beenx incapable of supporting these types of activities without relying upon plugins or additional external applications.
+The new IDE that we propose includes these features in order to address some of the gaps that we have determined through examination of the programming as problem-solving paradigm are endemic to modern IDEs.
+We hope to further develop these ideas through the development of a working prototype, and a subsequent study to validate the value of these features in addressing programming as problem-solving.
 
 \bibliography{bibliography}
 \bibliographystyle{apacite} 
