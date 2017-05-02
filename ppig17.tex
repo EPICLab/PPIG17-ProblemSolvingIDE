@@ -1,0 +1,77 @@
+\documentclass{ppig}
+\usepackage{epsfig, graphicx} % support for image encoding and manipulation
+\usepackage{ucs} % support for using UTF-8 as input encoding in LaTeX
+\usepackage[utf8x]{inputenc} % required for UTF-8 support with ucs.sty
+\usepackage{tabularx, multirow, booktabs} % support for high-quality tables
+\usepackage{csquotes} % support for block quotes (using displayquote command)
+\let\cite\shortcite % use short-form (first author et al.) for citations
+
+% The titlebox defines how much vertical space is given for
+% the authors' list. If you need extra space to show all the
+% authors, uncomment the line below and increase the value. Please
+% do not make the titlebox smaller than the original size of 5cm.
+%\setlength\titlebox{5cm}
+
+%\title{An Examination of IDE Design for Programming as Problem-Solving}
+\title{Towards an IDE to Support Programming as Problem-Solving}
+
+% List the authors like you would in a table.
+% The \And command creates another author's column. Use it after the
+% details of one author to separate them from the following author horizontally.
+% The \AND command creates a new "row" of authors and it should be used
+% when the authors don't fit on the same line. You may have to increase
+% the titlebox so that the author's don't overlap with the abstract.
+\author{Nicholas Nelson \\
+  Electrical Engineering \&\\ Computer Science \\
+  Oregon State University \\
+  nelsonni@oregonstate.edu \\
+  \And
+  Anita Sarma \\
+  Electrical Engineering \&\\ Computer Science \\
+  Oregon State University \\
+  Anita.Sarma@oregonstate.edu \\
+  \And
+  André van der Hoek \\
+  Department of Informatics \\
+  University of California, Irvine \\
+  andre@ics.uci.edu
+}
+  
+\date{\today}
+
+% Packages and macros for editorial purposes. Not required for submission.
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{aoblue}{rgb}{0.0, 0.0, 1.0}
+\newcommand{\bold}[1]{\textit{\textbf{\color{aoblue}#1}}} % macro for boldifications
+\newcommand{\todo}[1]{\textit{\textbf{\color{red}TODO: #1}}} % macro for TODO items
+\newcommand{\discuss}[1]{\textit{\textbf{\color{darkgreen}#1}}} % macro for in-line discussions/questions
+\newcommand{\nameUI}{\textit{<Insert Name>} UI} % macro placeholder for the name of the UI
+\usepackage{enumitem}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+
+Programming is inherently a problem-solving exercise: A programmer has to create an understanding of the situation, externalize and contextualize thoughts \& ideas, develop strategies on how to proceed with the task, enact changes according to the most appropriate strategy, and reflect to learn from each problem.
+Therefore, programming is clearly more than just code input, testing, and maintenance.
+Current Integrated Development Environments (IDE), however, largely focus on the "writing code" parts of programming.
+In this paper, we revisit which activities and actions constitute programming, and highlight six challenges to supporting these activities. 
+We then briefly describe a new paradigm of interacting with the IDE that we are working on to more directly support each of the six activities. 
+\end{abstract}
+
+\section{Programming as Problem-Solving}
+\input{intro}
+
+\section{Challenges}\label{challenges}
+\input{challenges}
+
+\section{Toward A New IDE}
+\input{new_ide}
+
+\bibliography{bibliography}
+\bibliographystyle{apacite}
+\end{document}
