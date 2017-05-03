@@ -5,7 +5,7 @@ These challenges span different categories of activities (see Table~\ref{pps_mat
 To intrinsically support problem-solving in IDEs, we need to first understand how people think when programming, how they approach different problems, what knowledge already exists in relation to that problem, how past solution (pieces) can be used for current problems, what development and team processes do developers use and so on. Designing an IDE that supports the different aspects of programming requires a careful analysis of both the the human and technical aspects. 
 We believe that it is necessary to fundamentally rethink IDEs, so that they seamlessly and intrinsically support programming as problem solving. Designing such an IDE has the following challenges:
 
-\begin{enumerate}
+\begin{enumerate}[label=C\arabic*.]
 	\item \textit{\textbf{How to support programmers formulation of problems and reflecting on solutions?}}
 	Programmers do not just arrive at a solution.
 	They need to first \textit{contextualize} the computational problem in terms of what they know and how they can progress towards a possible solution.
@@ -30,9 +30,9 @@ We believe that it is necessary to fundamentally rethink IDEs, so that they seam
 % When solving a programming problem, programmers need to orient around both their own and others' problem-solving spaces in order to transition from contemplating into actualizing (enacting) a solution.
   
   \item \textit{\textbf{How to enable collaboration between programmers when problem-solving across all related artifacts?}}
-  Organizing oneself in relation to a problem creates a cognitive load~\cite{sweller1988cognitive}, and this load increases when adding collaborators.
-  Multiple individuals working on the same problem have different problem-solving strategies and needs.
- Therefore, coordination across artifacts that hold different significance for each programmer is a major factor in enabling cohesive team work.
+  Individual developers have different styles of problem-solving.
+  Collaboration requires having the ability to collect how, why, and who was involved in each design rationale.
+  Also, one has to understand how their changes fit in to the context of others' changes in order to facilitate cohesive team work.
   
   \item \textit{\textbf{How to utilize different pieces of information and context to support the act of coding?}}
   Solutions to computation problems must eventually be represented in code.

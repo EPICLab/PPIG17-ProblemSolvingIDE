@@ -4,7 +4,9 @@
 \usepackage[utf8x]{inputenc} % required for UTF-8 support with ucs.sty
 \usepackage{tabularx, multirow, booktabs} % support for high-quality tables
 \usepackage{csquotes} % support for block quotes (using displayquote command)
+\usepackage{enumitem} % support for custom enumeration formats
 \let\cite\shortcite % use short-form (first author et al.) for citations
+
 
 % The titlebox defines how much vertical space is given for
 % the authors' list. If you need extra space to show all the
@@ -63,13 +65,13 @@ In this paper, we revisit which activities and actions constitute programming, a
 We then briefly describe a new paradigm of interacting with the IDE that we are working on to more directly support each of the six activities. 
 \end{abstract}
 
-\section{Programming as Problem-Solving}
+\section{Programming as Problem-Solving}\label{intro}
 \input{intro}
 
 \section{Challenges}\label{challenges}
 \input{challenges}
 
-\section{Toward A New IDE}
+\section{Toward A New IDE}\label{new_ide}
 \input{new_ide}
 
 \bibliography{bibliography}
