@@ -4,9 +4,7 @@
 \usepackage[utf8x]{inputenc} % required for UTF-8 support with ucs.sty
 \usepackage{tabularx, multirow, booktabs} % support for high-quality tables
 \usepackage{csquotes} % support for block quotes (using displayquote command)
-\usepackage{enumitem} % support for custom enumeration formats
 \let\cite\shortcite % use short-form (first author et al.) for citations
-
 
 % The titlebox defines how much vertical space is given for
 % the authors' list. If you need extra space to show all the
@@ -24,14 +22,15 @@
 % when the authors don't fit on the same line. You may have to increase
 % the titlebox so that the author's don't overlap with the abstract.
 \author{Nicholas Nelson \\
-  Electrical Engineering \&\\ Computer Science \\
+  EECS \\
   Oregon State University \\
   nelsonni@oregonstate.edu \\
   \And
   Anita Sarma \\
-  Electrical Engineering \&\\ Computer Science \\
+  EECS\\
+ % Electrical Engineering \&\\ Computer Science \\
   Oregon State University \\
-  Anita.Sarma@oregonstate.edu \\
+  anita.sarma@oregonstate.edu \\
   \And
   André van der Hoek \\
   Department of Informatics \\
@@ -58,20 +57,21 @@
 
 \begin{abstract}
 
-Programming is inherently a problem-solving exercise: A programmer has to create an understanding of the situation, externalize and contextualize thoughts \& ideas, develop strategies on how to proceed with the task, enact changes according to the most appropriate strategy, and reflect to learn from each problem.
+Programming is inherently a problem-solving exercise: A programmer has to create an understanding of the situation, externalize and contextualize thoughts and ideas, develop strategies on how to proceed with the task, enact changes according to the most appropriate strategy, and reflect to learn from each problem.
 Therefore, programming is clearly more than just code input, testing, and maintenance.
 Current Integrated Development Environments (IDE), however, largely focus on the "writing code" parts of programming.
-In this paper, we revisit which activities and actions constitute programming, and highlight six challenges to supporting these activities. 
-We then briefly describe a new paradigm of interacting with the IDE that we are working on to more directly support each of the six activities. 
+In this position paper, we revisit which activities and actions constitute programming, and highlight six challenges to supporting these activities. 
+We then briefly describe a new paradigm of interacting with the IDE on which we are working to more directly support each of the six activities. 
 \end{abstract}
 
-\section{Programming as Problem-Solving}\label{intro}
+\section{Programming as Problem-Solving}
 \input{intro}
 
 \section{Challenges}\label{challenges}
 \input{challenges}
 
-\section{Toward A New IDE}\label{new_ide}
+\input{figure_ide}
+\section{Toward A New IDE}
 \input{new_ide}
 
 \bibliography{bibliography}

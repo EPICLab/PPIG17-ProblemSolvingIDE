@@ -1,43 +1,37 @@
-%Within this context, it is surprising that current IDEs only support some of this entire spectrum of programming activities, primarily focusing on support for navigating and editing the codebase.
-Supporting the full set of actions comprising problem-solving in programming has numerous challenges.
-%Numerous challenges arise in current IDEs supporting the full set of actions that comprise problem-solving in programming.
-These challenges span different categories of activities (see Table~\ref{pps_matrix}, \textit{Activities} A1-A6). Even those activities (A4) that have traditionally been supported by IDEs have gaps when reviewed from the lens of problem-solving requirements.
-To intrinsically support problem-solving in IDEs, we need to first understand how people think when programming, how they approach different problems, what knowledge already exists in relation to that problem, how past solution (pieces) can be used for current problems, what development and team processes do developers use and so on. Designing an IDE that supports the different aspects of programming requires a careful analysis of both the the human and technical aspects. 
-We believe that it is necessary to fundamentally rethink IDEs, so that they seamlessly and intrinsically support programming as problem solving. Designing such an IDE has the following challenges:
+We believe that it is necessary to fundamentally rethink IDEs, so that they seamlessly and intrinsically
+support programming as problem solving. Supporting the full set of actions comprising problem-solving
+in programming, however, involves numerous challenges that must be addressed. These challenges span
+all six categories of activities, and even those activities that have traditionally been supported by IDEs \textit{(A4)} exhibit gaps when reviewed through the lens of problem-solving requirements.
 
-\begin{enumerate}[label=C\arabic*.]
-	\item \textit{\textbf{How to support programmers formulation of problems and reflecting on solutions?}}
-	Programmers do not just arrive at a solution.
-	They need to first \textit{contextualize} the computational problem in terms of what they know and how they can progress towards a possible solution.
-	They may explore, articulate, and reflect on different alternatives--these activities are interleaved, sometimes even happening at the same time (e.g., a developer may reflect on the solution while they articulate it), and typically encompass several quick iterations.
+\begin{enumerate}
+	\item \textit{\textbf{How to support programmers' formulation of problems and reflection on potential solutions?}}
+	Programmers do not just arrive at a solution out of nowhere.
+	They need to first contextualize the computational problem in terms of what they know and how they can progress towards a possible solution.
+	This involves exploration, articulation, and reflection on different alternatives, with these actions being interleaved, sometimes even happening at the same time (e.g., developers are known to reflect on a code solution while they articulate it) and typically encompassing several relatively quick iterations.
 	Often there is no single correct solution, and the best solution requires mixing and matching elements from multiple alternative solutions.
     
-    \item \textit{\textbf{How to support programmers access to the relevant context in a problem space?}}
+    \item \textit{\textbf{How to provide programmers access to the relevant context in a problem space?}}
     Programming solutions must exist in the context of the rest of the codebase and its related artifacts.
-    Programmers need to understand where a code snippet fits in a codebase, what it calls out to, and what calls into it~\cite{desouza2008empirical}, the desired behaviors of the code snippet (e.g., computational speed, usability, features), organizational policies (e.g., licensing, process standards, code style), and historical development (e.g., has a solution previously been tried and rejected).
-    Information that defines the context is not always directly available, and instead, must be cobbled from different types and sources of artifacts.
-    A developer needs to know where these individual pieces of information reside and how to cherry-pick the items that actually pertain to the problem at hand.
+    Programmers need to understand where a code snippet fits in a code base, what it calls out to, and what calls into it~\cite{desouza2008empirical}, the desired behaviors of the existing codeand the code to be produced (e.g., computational speed, usability, features), organizational policies (e.g., licensing, process standards, code style), and historical development (e.g., has a solution previously been tried and rejected).
+    Information that defines this context is not always readily available and, instead, must be cobbled together from multiple different types of and sources of artifacts.
+    A developer needs to know where these individual pieces of information reside and how to obtain just those items that actually pertain to the problem at hand.
     
  	\item \textit{\textbf{How to support different information processing style and workflow of programmers?}}
- 	Programing is a creating activity; no two programmers arrive at the same solution in the same way. For example, female programmers process information \textit{comprehensively}, seeking a more complete understanding of the problem~\cite{grigoreanu2012end} before starting, whereas male programmers prefer to use a \textit{heuristic} (or \textit{selective}) approach. 
- 	Visuospatial reasoning is critical for abstract knowledge and inference, and is a core component of how we view the world~\cite{tversky2005visuospatial}.
- 	When problem-solving, programmers bring their own personal visuospatial reasoning and information processing style to evaluating and organizing artifacts, solutions, and ideas.
+ 	Programing is a creating activity; no two programmers arrive at the same solution in the same way. For example, female programmers tend to process information comprehensively, seeking a more complete understanding of the problem before starting~\cite{grigoreanu2012end}, whereas male programmers are known to use a more heuristic (or selective) approach. As another example, visuospatial reasoning is critical for abstract knowledge and inference, and is a core component of how we view the world, but it has been observed that programmers bring their own personal visuospatial reasoning and information processing style to evaluating and organizing artifacts, solutions, and ideas~\cite{tversky2005visuospatial}.
   
-  \item \textit{\textbf{How to support programmers understanding the contextual history of a solution?}}
+  \item \textit{\textbf{How to support programmers in relying on past experience?}}
   Problem-solving in programming is not a one-off activity performed in isolation.
-  Instead, programmers rely upon past experiences with similar problems, knowledge gained from previous artifact interactions, and prior mental models.% that allowed comprehension and problem-solving to succeed.
-  When solving a problem, programmers need to create a solution that matches their knowledge and skills, the computation problem, and the team and project needs.
+  Instead, programmers rely upon past experiences with similar problems, knowledge gained from previous artifact interactions, and prior mental models. % that allowed comprehension and problem-solving to succeed. 
+  The question arises of how this prior experience can be brought to bear, easily, when a programmer faces a new situation. Apart from the programmer memorizing what they might have done in the past and looking this up, current IDEs provide no support in this regard. The challenge lies in how a new IDE can provide this kind of assistance.
 % When solving a programming problem, programmers need to orient around both their own and others' problem-solving spaces in order to transition from contemplating into actualizing (enacting) a solution.
   
-  \item \textit{\textbf{How to enable collaboration between programmers when problem-solving across all related artifacts?}}
-  Individual developers have different styles of problem-solving.
-  Collaboration requires having the ability to collect how, why, and who was involved in each design rationale.
-  Also, one has to understand how their changes fit in to the context of others' changes in order to facilitate cohesive team work.
-  
-  \item \textit{\textbf{How to utilize different pieces of information and context to support the act of coding?}}
-  Solutions to computation problems must eventually be represented in code.
-  Converting the conceptual solutions into actual lines of code is non-linear (coding sessions start and stop), occurs concurrently with other problem-solving activities, and is loosely organized (e.g., solutions are partially implemented, abandoned, and recovered).
-Creating a simple, elegant software solution hinges on complex, exploratory coding sessions.
+  \item \textit{\textbf{How to enable collaboration between programmers across all artifacts involved in problem solving?}}
+As already highlighted, programmers contextualize their work with all sorts of different artifacts. Yet, current IDEs generally only allow sharing of the code being worked on. Successful collaboration, however, requires sharing of all different artifacts so all participants have access to the full context. Moreover, it requires ongoing programmers to  know how their changes may affect others, and who may be making changes that affect their own work ~\cite{desouza2008empirical}. Finally, they also need to understand the provenance of design decisions, and how and why these decisions were made. 
+
+\item \textit{\textbf{How to utilize different pieces of information and context to support the act of coding?}}
+Solutions to computation problems must eventually be represented in code.
+Converting a conceptual solution into actual lines of code is a non-linear activity (coding sessions start and stop), occurs concurrently with other problem-solving activities, and is loosely organized (e.g., solutions are partially implemented, abandoned, and recovered).
+Creating a simple, elegant software solution hinges on complex, exploratory coding sessions, and the IDE must support this process fluidly.
 
 %Therefore, programmers must cope with high-complexity coding sessions in the pursuit of simple, elegant software solutions.
 \end{enumerate}
